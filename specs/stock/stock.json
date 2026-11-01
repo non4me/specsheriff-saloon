@@ -32,7 +32,17 @@
               "type": "implements",
               "from": "s-pcxc2kjytq2fvdc"
             }
-          ]
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/stock/stock.ts"
+              }
+            ],
+            "tests": [
+              "test/stock.test.ts::s-6c6uhutp3355ewu refuses to take out more of a supply than the stock holds, and takes out all it holds"
+            ]
+          }
         },
         {
           "id": "stock/1.2",

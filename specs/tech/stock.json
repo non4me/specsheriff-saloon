@@ -28,7 +28,21 @@
               "type": "implements",
               "to": "s-xgkgb3kvcbs7x5v"
             }
-          ]
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/stock/stock.ts"
+              }
+            ],
+            "tests": [
+              "test/stock.test.ts::s-pcxc2kjytq2fvdc checks the lines, then that each supply is held, then how many of each are held, and refuses at the first that fails",
+              "test/stock.test.ts::s-pcxc2kjytq2fvdc is created from the supplies the saloon holds, and tells how many of each it holds and what each costs",
+              "test/stock.test.ts::s-pcxc2kjytq2fvdc refuses a list naming one supply twice",
+              "test/stock.test.ts::s-pcxc2kjytq2fvdc takes lines naming the same supply as one, their quantities added up",
+              "test/stock.test.ts::s-pcxc2kjytq2fvdc takes what the lines ask for, and checking first changes nothing"
+            ]
+          }
         }
       ],
       "refs": []

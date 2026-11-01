@@ -216,7 +216,12 @@
               "type": "implements",
               "from": "s-vgw3yx6xnkk4gf6"
             }
-          ]
+          ],
+          "meta": {
+            "tests": [
+              "test/stock.test.ts::s-j3b7zs9299nj5fr leaves the stock as it was when taking is refused"
+            ]
+          }
         },
         {
           "id": "contracts/2",
@@ -239,7 +244,17 @@
               "type": "implements",
               "from": "s-5mu2qm3u5ue82sk"
             }
-          ]
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/stock/stock.ts"
+              }
+            ],
+            "tests": [
+              "test/stock.test.ts::s-xgkgb3kvcbs7x5v refuses a supply the stock does not hold, whether read, priced or taken"
+            ]
+          }
         },
         {
           "id": "contracts/3",

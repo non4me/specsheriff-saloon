@@ -76,6 +76,16 @@
               "src/generated/types.ts",
               "src/generated/checks.json"
             ]
+          },
+          "meta": {
+            "code": [
+              {
+                "file": "src/checks.ts"
+              }
+            ],
+            "tests": [
+              "test/checks.test.ts::s-hvqpka9xadrdhxp holds each data record to the runtime check generated from its node"
+            ]
           }
         },
         {
@@ -100,6 +110,14 @@
                 "ruling": "The owner: the runtime checks are run by Ajv 8.20.0.",
                 "type": "textual"
               }
+            ],
+            "code": [
+              {
+                "file": "src/checks.ts"
+              }
+            ],
+            "tests": [
+              "test/checks.test.ts::s-rrvpxyz6pa53sa6 checks every format in full, the days each month has included"
             ]
           }
         },
@@ -116,7 +134,17 @@
               "type": "implements",
               "to": "s-e877bnfa559tvk9"
             }
-          ]
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/checks.ts"
+              }
+            ],
+            "tests": [
+              "test/checks.test.ts::s-ydfsa5ueshcc56y checks each data record a constructor is given before anything else, and refuses one that fails"
+            ]
+          }
         },
         {
           "id": "tech/stack/7",
@@ -126,7 +154,20 @@
           "status": "checked",
           "text": "A method or constructor that refuses throws a `Refusal`, an error whose `rule` holds the sid of the rule refusing, or of the data record node whose runtime check failed.",
           "rationale": "One kind of error for every refusal lets a caller tell a refusal from a fault, and the sid tells which rule refused, which a test checks.",
-          "refs": []
+          "refs": [],
+          "meta": {
+            "code": [
+              {
+                "file": "src/checks.ts"
+              },
+              {
+                "file": "src/refusal.ts"
+              }
+            ],
+            "tests": [
+              "test/checks.test.ts::s-9ax5e2x6xzqzb3q throws a Refusal, an error whose rule holds the sid of the rule refusing or of the data record whose check failed"
+            ]
+          }
         },
         {
           "id": "tech/stack/8",
@@ -149,7 +190,17 @@
               "type": "implements",
               "to": "s-5f774mswy72x3gh"
             }
-          ]
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/stock/stock.ts"
+              }
+            ],
+            "tests": [
+              "test/stock.test.ts::s-vgw3yx6xnkk4gf6 makes every check that could refuse the taking before taking anything out"
+            ]
+          }
         }
       ],
       "refs": []
