@@ -1,0 +1,15 @@
+{
+  "extraKnownMarketplaces": {
+    "specsheriff-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "non4me/SpecSheriff",
+        "ref": "release"
+      },
+      "autoUpdate": true
+    }
+  },
+  "enabledPlugins": {
+    "specsheriff@specsheriff-marketplace": true
+  }
+}

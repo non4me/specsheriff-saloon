@@ -1,0 +1,9 @@
+{
+  "code": [
+    "src/**/*.ts"
+  ],
+  "tests": [
+    "test/**/*.test.ts"
+  ],
+  "testCommand": "npm test"
+}

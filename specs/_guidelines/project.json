@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "scope": "_guidelines",
+  "section": "project",
+  "nodes": [
+    {
+      "id": "_guidelines/project",
+      "sid": "s-fc6n7wx4rw5ug4a",
+      "kind": "section",
+      "title": "The project's own guidelines",
+      "status": "checked",
+      "text": "What only this project's specification needs beyond the SpecSheriff guidelines.",
+      "owner": "vladimir.troyanenko@gmail.com",
+      "refs": [],
+      "children": [
+        {
+          "id": "_guidelines/project/1",
+          "sid": "s-xtxfx2umeg49fyu",
+          "kind": "rule",
+          "title": "The levels of the domains",
+          "status": "checked",
+          "text": "The domains stand at these levels, from the general to the particular: service, the domains that deal with a regular, keeping what the regular takes or owes; goods, the domains that keep what the saloon has to sell and know no regular.",
+          "rationale": "What a regular takes or owes is made of what the saloon has to sell, and what the saloon has to sell depends on no regular, so the service stands above the goods.",
+          "refs": [
+            {
+              "type": "refines",
+              "to": "s-nkyty4dy9x2v2a4"
+            }
+          ],
+          "list": {
+            "of": "the levels the domains stand at",
+            "members": [
+              "service",
+              "goods"
+            ]
+          }
+        },
+        {
+          "id": "_guidelines/project/2",
+          "sid": "s-ffdhnma83jhbuxu",
+          "kind": "rule",
+          "title": "The choices of the stack no symbol carries",
+          "status": "checked",
+          "text": "The rules of the stack choosing the language and the runtime (§s-s2d8zd3ca6egrwf), where the data is kept (§s-yuhpy7wst359nnw) and how the code is checked (§s-ebkd2pa8ccjtkhn) are exempt from being implemented.",
+          "rationale": "They are carried out by the repository's setup — its package and its compiler's settings — and by the objects a caller creates, rather than by a symbol of the system's code, so no symbol can carry their tag and no test of the system can verify them, and each would be reported as not implemented for as long as it stood (§s-6fw72j65jkqrfpf).",
+          "refs": [
+            {
+              "type": "refines",
+              "to": "s-6fw72j65jkqrfpf"
+            },
+            {
+              "type": "exempts",
+              "to": "s-s2d8zd3ca6egrwf"
+            },
+            {
+              "type": "exempts",
+              "to": "s-yuhpy7wst359nnw"
+            },
+            {
+              "type": "exempts",
+              "to": "s-ebkd2pa8ccjtkhn"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

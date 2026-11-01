@@ -1,0 +1,388 @@
+{
+  "schemaVersion": 1,
+  "scope": "tabs",
+  "section": "tabs",
+  "nodes": [
+    {
+      "id": "tabs/1",
+      "sid": "s-uqukzzk3j2w2gny",
+      "kind": "section",
+      "title": "The tabs",
+      "status": "checked",
+      "text": "What the tabs accept, and how they keep account of it.",
+      "children": [
+        {
+          "id": "tabs/1.1",
+          "sid": "s-t8zhcywbmp5rkbr",
+          "kind": "rule",
+          "title": "One tab for a regular",
+          "status": "checked",
+          "text": "The tabs refuse to open a tab for a regular they already keep a tab for.",
+          "rationale": "A tab's limit bounds what its regular owes, and with two tabs a regular could owe more than the limit of either. A tab is also identified by its regular's name, so of two tabs for one regular, which one a charge or a repayment goes to would be a guess.",
+          "refs": [
+            {
+              "type": "constrains",
+              "to": "s-6zwzkthktpq6c3c"
+            },
+            {
+              "type": "implements",
+              "from": "s-5mu2qm3u5ue82sk"
+            }
+          ]
+        },
+        {
+          "id": "tabs/1.2",
+          "sid": "s-n7wmxj35vnsc9uk",
+          "kind": "rule",
+          "title": "A tab holds the debt within the limit",
+          "status": "checked",
+          "text": "The tabs refuse a charge that would take a regular's debt above the limit of their tab.",
+          "rationale": "The limit is what the saloon agreed to let a regular owe: a debt above it is credit nobody granted.",
+          "refs": [
+            {
+              "type": "constrains",
+              "to": "s-6zwzkthktpq6c3c"
+            },
+            {
+              "type": "constrains",
+              "to": "s-ehcz87hd3ygcjtp"
+            },
+            {
+              "type": "implements",
+              "from": "s-5mu2qm3u5ue82sk"
+            },
+            {
+              "type": "implements",
+              "from": "s-3srstg864vu2eyj"
+            }
+          ]
+        },
+        {
+          "id": "tabs/1.3",
+          "sid": "s-t2a2p5jjest399m",
+          "kind": "rule",
+          "title": "A repayment never takes the debt below zero",
+          "status": "checked",
+          "text": "The tabs refuse a repayment larger than the regular's debt.",
+          "rationale": "A debt below zero would be money the saloon owes the regular, which a tab is not kept for.",
+          "refs": [
+            {
+              "type": "constrains",
+              "to": "s-gj3c6xu7mtvmgfm"
+            },
+            {
+              "type": "implements",
+              "from": "s-5mu2qm3u5ue82sk"
+            }
+          ]
+        },
+        {
+          "id": "tabs/1.4",
+          "sid": "s-7vgppsr73pc8fgn",
+          "kind": "rule",
+          "title": "The tabs write everything they accept to the journal",
+          "status": "checked",
+          "text": "The tabs write every charge and every repayment they accept to the journal of the regular's tab, each as a journal entry.",
+          "rationale": "The debt is read off the journal (§s-r64zmxy6x6bvzyw), so a charge or a repayment left out of it would leave the debt wrong.",
+          "refs": [
+            {
+              "type": "cites",
+              "to": "s-r64zmxy6x6bvzyw"
+            },
+            {
+              "type": "constrains",
+              "to": "s-2896rux5emnnwpy"
+            },
+            {
+              "type": "implements",
+              "from": "s-5mu2qm3u5ue82sk"
+            }
+          ]
+        },
+        {
+          "id": "tabs/1.5",
+          "sid": "s-42z743tznzc48pm",
+          "kind": "rule",
+          "title": "The price of an order",
+          "status": "checked",
+          "text": "The tabs price an order as the sum, over its lines, of the supply's price times how many of it the line asks for.",
+          "rationale": "An order is charged for what it takes out of the stock, at the price the stock holds for each supply.",
+          "refs": [
+            {
+              "type": "constrains",
+              "to": "s-6dg6rvnzg7xmcm9"
+            },
+            {
+              "type": "constrains",
+              "to": "s-vugzkbduqu86uhr"
+            },
+            {
+              "type": "constrains",
+              "to": "s-f3kv8352za6w2un"
+            },
+            {
+              "type": "implements",
+              "from": "s-5mu2qm3u5ue82sk"
+            }
+          ]
+        },
+        {
+          "id": "tabs/1.6",
+          "sid": "s-6zwzkthktpq6c3c",
+          "kind": "record",
+          "title": "Tab",
+          "status": "checked",
+          "text": "A regular's tab as the saloon opens it.",
+          "fields": [
+            {
+              "name": "regular",
+              "type": {
+                "is": "text"
+              },
+              "required": true,
+              "text": "The name of the regular the tab is kept for, which identifies the tab."
+            },
+            {
+              "name": "limit",
+              "type": {
+                "is": "whole number",
+                "minimum": 0
+              },
+              "required": true,
+              "text": "The most the regular may owe on the tab, in cents."
+            }
+          ],
+          "unknown": "refused",
+          "identifiedBy": "regular",
+          "refs": [
+            {
+              "type": "constrains",
+              "from": "s-t8zhcywbmp5rkbr"
+            },
+            {
+              "type": "constrains",
+              "from": "s-n7wmxj35vnsc9uk"
+            }
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/generated/types.ts"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tabs/1.7",
+          "sid": "s-2896rux5emnnwpy",
+          "kind": "record",
+          "title": "Journal entry",
+          "status": "checked",
+          "text": "One charge or repayment the tabs accepted.",
+          "fields": [
+            {
+              "name": "regular",
+              "type": {
+                "is": "identifier of",
+                "record": "s-6zwzkthktpq6c3c"
+              },
+              "required": true,
+              "text": "The regular whose tab accepted it."
+            },
+            {
+              "name": "entryKind",
+              "type": {
+                "is": "one of",
+                "values": [
+                  "charge",
+                  "repayment"
+                ]
+              },
+              "required": true,
+              "text": "Whether the entry adds to the debt or takes off it."
+            },
+            {
+              "name": "amount",
+              "type": {
+                "is": "whole number",
+                "exclusiveMinimum": 0
+              },
+              "required": true,
+              "text": "How much the entry adds to the debt or takes off it, in cents."
+            },
+            {
+              "name": "acceptedAt",
+              "type": {
+                "is": "instant"
+              },
+              "required": true,
+              "text": "When the tabs accepted it."
+            }
+          ],
+          "unknown": "refused",
+          "refs": [
+            {
+              "type": "constrains",
+              "from": "s-ghhractkb4sywee"
+            },
+            {
+              "type": "constrains",
+              "from": "s-5f774mswy72x3gh"
+            },
+            {
+              "type": "constrains",
+              "from": "s-7vgppsr73pc8fgn"
+            }
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/generated/types.ts"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tabs/1.8",
+          "sid": "s-ehcz87hd3ygcjtp",
+          "kind": "record",
+          "title": "Charge",
+          "status": "checked",
+          "text": "A charge as it comes to the tabs.",
+          "fields": [
+            {
+              "name": "regular",
+              "type": {
+                "is": "identifier of",
+                "record": "s-6zwzkthktpq6c3c"
+              },
+              "required": true,
+              "text": "The regular who comes to owe it."
+            },
+            {
+              "name": "amount",
+              "type": {
+                "is": "whole number",
+                "exclusiveMinimum": 0
+              },
+              "required": true,
+              "text": "How much the regular comes to owe, in cents."
+            }
+          ],
+          "unknown": "refused",
+          "refs": [
+            {
+              "type": "constrains",
+              "from": "s-n7wmxj35vnsc9uk"
+            }
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/generated/types.ts"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tabs/1.9",
+          "sid": "s-gj3c6xu7mtvmgfm",
+          "kind": "record",
+          "title": "Repayment",
+          "status": "checked",
+          "text": "A repayment as it comes to the tabs.",
+          "fields": [
+            {
+              "name": "regular",
+              "type": {
+                "is": "identifier of",
+                "record": "s-6zwzkthktpq6c3c"
+              },
+              "required": true,
+              "text": "The regular who pays."
+            },
+            {
+              "name": "amount",
+              "type": {
+                "is": "whole number",
+                "exclusiveMinimum": 0
+              },
+              "required": true,
+              "text": "How much the regular pays back, in cents."
+            }
+          ],
+          "unknown": "refused",
+          "refs": [
+            {
+              "type": "constrains",
+              "from": "s-t2a2p5jjest399m"
+            }
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/generated/types.ts"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tabs/1.10",
+          "sid": "s-6dg6rvnzg7xmcm9",
+          "kind": "record",
+          "title": "Order",
+          "status": "checked",
+          "text": "A regular's order as it comes to the tabs.",
+          "fields": [
+            {
+              "name": "regular",
+              "type": {
+                "is": "identifier of",
+                "record": "s-6zwzkthktpq6c3c"
+              },
+              "required": true,
+              "text": "The regular whose tab the order goes on."
+            },
+            {
+              "name": "lines",
+              "type": {
+                "is": "list of",
+                "of": {
+                  "is": "record",
+                  "record": "s-vugzkbduqu86uhr"
+                },
+                "minItems": 1
+              },
+              "required": true,
+              "text": "What the order asks for, one supply on each line."
+            }
+          ],
+          "unknown": "refused",
+          "refs": [
+            {
+              "type": "constrains",
+              "from": "s-ghhractkb4sywee"
+            },
+            {
+              "type": "constrains",
+              "from": "s-42z743tznzc48pm"
+            }
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/generated/types.ts"
+              }
+            ]
+          }
+        }
+      ],
+      "refs": [
+        {
+          "type": "consumes",
+          "from": "s-8werye2rh9hrk76"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "scope": "tabs",
+  "section": "00-tabs",
+  "nodes": [
+    {
+      "id": "tabs",
+      "sid": "s-xcb3mcj48kvyjcy",
+      "kind": "domain",
+      "title": "tabs",
+      "status": "checked",
+      "text": "Keeps each regular's tab: opens it, puts on it the charges for the regular's orders and bookings, takes the regular's repayments, and holds the debt within the tab's limit.",
+      "level": "service",
+      "code": "src/tabs",
+      "sections": [
+        {
+          "sid": "s-uqukzzk3j2w2gny",
+          "title": "The tabs",
+          "text": "What the tabs accept, and how they keep account of it.",
+          "usedBy": [
+            "s-8werye2rh9hrk76"
+          ]
+        }
+      ],
+      "refs": [
+        {
+          "type": "consumes",
+          "to": "s-pbrecuyh6udm5tp"
+        }
+      ]
+    }
+  ]
+}

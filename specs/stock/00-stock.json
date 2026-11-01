@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "scope": "stock",
+  "section": "00-stock",
+  "nodes": [
+    {
+      "id": "stock",
+      "sid": "s-rasp8m3k8krwbby",
+      "kind": "domain",
+      "title": "stock",
+      "status": "checked",
+      "text": "Keeps how much of each supply the saloon holds, and what each costs.",
+      "level": "goods",
+      "code": "src/stock",
+      "sections": [
+        {
+          "sid": "s-pbrecuyh6udm5tp",
+          "title": "The stock",
+          "text": "What the stock holds, and how it changes.",
+          "usedBy": [
+            "s-xcb3mcj48kvyjcy"
+          ]
+        }
+      ],
+      "refs": []
+    }
+  ]
+}

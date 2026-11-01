@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "scope": "rooms",
+  "section": "rooms",
+  "nodes": [
+    {
+      "id": "rooms/1",
+      "sid": "s-ckk8pd7tkj94k4b",
+      "kind": "section",
+      "title": "The rooms",
+      "status": "checked",
+      "text": "Which rooms the saloon lets, to whom, and when.",
+      "children": [
+        {
+          "id": "rooms/1.1",
+          "sid": "s-mv5krsy8q6c9vre",
+          "kind": "rule",
+          "title": "No hour of a room is let twice",
+          "status": "checked",
+          "text": "The rooms refuse to book a room at an instant earlier than 24 hours after a booking of that room they already keep was made.",
+          "rationale": "A booking holds its room for 24 hours from the instant it is made (§s-v5pj2nz366fp7kb), and a room has a bed for one booking at a time: a second booking within those hours promises that bed to a second regular, or charges the same regular twice for it.",
+          "refs": [
+            {
+              "type": "constrains",
+              "to": "s-sypqtqmjnaadg9g"
+            },
+            {
+              "type": "cites",
+              "to": "s-v5pj2nz366fp7kb"
+            },
+            {
+              "type": "implements",
+              "from": "s-nr4w6vmrb664y2c"
+            }
+          ]
+        },
+        {
+          "id": "rooms/1.2",
+          "sid": "s-pnwehzrzuhuem8y",
+          "kind": "record",
+          "title": "Room",
+          "status": "checked",
+          "text": "A room as the saloon lets it.",
+          "fields": [
+            {
+              "name": "number",
+              "type": {
+                "is": "whole number",
+                "minimum": 1
+              },
+              "required": true,
+              "text": "The number on the room's door, which identifies it."
+            },
+            {
+              "name": "price",
+              "type": {
+                "is": "whole number",
+                "exclusiveMinimum": 0
+              },
+              "required": true,
+              "text": "What a booking of it costs, in cents."
+            }
+          ],
+          "unknown": "refused",
+          "identifiedBy": "number",
+          "refs": [
+            {
+              "type": "constrains",
+              "from": "s-5f774mswy72x3gh"
+            }
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/generated/types.ts"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rooms/1.3",
+          "sid": "s-sypqtqmjnaadg9g",
+          "kind": "record",
+          "title": "Booking",
+          "status": "checked",
+          "text": "A booking as the rooms keep it.",
+          "fields": [
+            {
+              "name": "room",
+              "type": {
+                "is": "identifier of",
+                "record": "s-pnwehzrzuhuem8y"
+              },
+              "required": true,
+              "text": "The room let."
+            },
+            {
+              "name": "madeAt",
+              "type": {
+                "is": "instant"
+              },
+              "required": true,
+              "text": "The instant the rooms made the booking."
+            },
+            {
+              "name": "regular",
+              "type": {
+                "is": "identifier of",
+                "record": "s-6zwzkthktpq6c3c"
+              },
+              "required": true,
+              "text": "The regular the room is let to."
+            }
+          ],
+          "unknown": "refused",
+          "refs": [
+            {
+              "type": "constrains",
+              "from": "s-5f774mswy72x3gh"
+            },
+            {
+              "type": "constrains",
+              "from": "s-mv5krsy8q6c9vre"
+            }
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/generated/types.ts"
+              }
+            ]
+          }
+        }
+      ],
+      "refs": []
+    }
+  ]
+}

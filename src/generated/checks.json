@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "Room": {
+      "type": "object",
+      "properties": {
+        "number": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "price": {
+          "type": "integer",
+          "exclusiveMinimum": 0
+        }
+      },
+      "required": [
+        "number",
+        "price"
+      ],
+      "additionalProperties": false
+    },
+    "Booking": {
+      "type": "object",
+      "properties": {
+        "room": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "madeAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "regular": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "room",
+        "madeAt",
+        "regular"
+      ],
+      "additionalProperties": false
+    },
+    "Supply": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "price": {
+          "type": "integer",
+          "exclusiveMinimum": 0
+        },
+        "inStock": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "name",
+        "price",
+        "inStock"
+      ],
+      "additionalProperties": false
+    },
+    "OrderLine": {
+      "type": "object",
+      "properties": {
+        "supply": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "supply",
+        "quantity"
+      ],
+      "additionalProperties": false
+    },
+    "Tab": {
+      "type": "object",
+      "properties": {
+        "regular": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "regular",
+        "limit"
+      ],
+      "additionalProperties": false
+    },
+    "JournalEntry": {
+      "type": "object",
+      "properties": {
+        "regular": {
+          "type": "string"
+        },
+        "entryKind": {
+          "enum": [
+            "charge",
+            "repayment"
+          ]
+        },
+        "amount": {
+          "type": "integer",
+          "exclusiveMinimum": 0
+        },
+        "acceptedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "regular",
+        "entryKind",
+        "amount",
+        "acceptedAt"
+      ],
+      "additionalProperties": false
+    },
+    "Charge": {
+      "type": "object",
+      "properties": {
+        "regular": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "integer",
+          "exclusiveMinimum": 0
+        }
+      },
+      "required": [
+        "regular",
+        "amount"
+      ],
+      "additionalProperties": false
+    },
+    "Repayment": {
+      "type": "object",
+      "properties": {
+        "regular": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "integer",
+          "exclusiveMinimum": 0
+        }
+      },
+      "required": [
+        "regular",
+        "amount"
+      ],
+      "additionalProperties": false
+    },
+    "Order": {
+      "type": "object",
+      "properties": {
+        "regular": {
+          "type": "string"
+        },
+        "lines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/OrderLine"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "regular",
+        "lines"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

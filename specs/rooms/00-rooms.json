@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "scope": "rooms",
+  "section": "00-rooms",
+  "nodes": [
+    {
+      "id": "rooms",
+      "sid": "s-8werye2rh9hrk76",
+      "kind": "domain",
+      "title": "rooms",
+      "status": "checked",
+      "text": "Lets the rooms upstairs, and keeps their bookings.",
+      "level": "service",
+      "code": "src/rooms",
+      "sections": [
+        {
+          "sid": "s-ckk8pd7tkj94k4b",
+          "title": "The rooms",
+          "text": "Which rooms the saloon lets, to whom, and when."
+        }
+      ],
+      "refs": [
+        {
+          "type": "consumes",
+          "to": "s-uqukzzk3j2w2gny"
+        }
+      ]
+    }
+  ]
+}

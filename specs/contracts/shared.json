@@ -1,0 +1,314 @@
+{
+  "schemaVersion": 1,
+  "scope": "contracts",
+  "section": "shared",
+  "nodes": [
+    {
+      "id": "contracts/shared",
+      "sid": "s-fdvc6czc6cf98r6",
+      "kind": "section",
+      "title": "What the domains share",
+      "status": "checked",
+      "text": "The terms the domains share and the rules that bind more than one of them.",
+      "children": [
+        {
+          "id": "contracts/regular",
+          "sid": "s-kn467afdcxgnk6b",
+          "kind": "term",
+          "title": "regular",
+          "status": "checked",
+          "text": "A patron the saloon runs a tab for, known by name.",
+          "refs": [
+            {
+              "type": "term-relation",
+              "to": "s-wjm4syumf858b4y",
+              "ratio": "1:1"
+            },
+            {
+              "type": "term-relation",
+              "from": "s-3z4yxwrxza3a54x",
+              "ratio": "1:0..N"
+            },
+            {
+              "type": "term-relation",
+              "from": "s-v5pj2nz366fp7kb",
+              "ratio": "1:0..N"
+            }
+          ]
+        },
+        {
+          "id": "contracts/tab",
+          "sid": "s-wjm4syumf858b4y",
+          "kind": "term",
+          "title": "tab",
+          "status": "checked",
+          "text": "The account the saloon keeps for a regular: its journal, the charges and repayments written to it, and its limit, the most the regular may owe on it.",
+          "refs": [
+            {
+              "type": "term-relation",
+              "from": "s-kn467afdcxgnk6b",
+              "ratio": "1:1"
+            },
+            {
+              "type": "term-relation",
+              "from": "s-ra9rperf3x35pyx",
+              "ratio": "1:0..N"
+            },
+            {
+              "type": "term-relation",
+              "from": "s-8uubskk5bhvvrt4",
+              "ratio": "1:0..N"
+            },
+            {
+              "type": "term-relation",
+              "from": "s-r64zmxy6x6bvzyw",
+              "ratio": "1:1"
+            }
+          ]
+        },
+        {
+          "id": "contracts/charge",
+          "sid": "s-ra9rperf3x35pyx",
+          "kind": "term",
+          "title": "charge",
+          "status": "checked",
+          "text": "An amount a regular comes to owe on their tab, for an order or a booking.",
+          "refs": [
+            {
+              "type": "term-relation",
+              "to": "s-wjm4syumf858b4y",
+              "ratio": "0..N:1"
+            }
+          ]
+        },
+        {
+          "id": "contracts/repayment",
+          "sid": "s-8uubskk5bhvvrt4",
+          "kind": "term",
+          "title": "repayment",
+          "status": "checked",
+          "text": "An amount a regular pays back on their tab.",
+          "refs": [
+            {
+              "type": "term-relation",
+              "to": "s-wjm4syumf858b4y",
+              "ratio": "0..N:1"
+            }
+          ]
+        },
+        {
+          "id": "contracts/debt",
+          "sid": "s-r64zmxy6x6bvzyw",
+          "kind": "term",
+          "title": "debt",
+          "status": "checked",
+          "text": "What a regular owes on their tab: the sum of the charges on its journal less the sum of the repayments on it.",
+          "refs": [
+            {
+              "type": "term-relation",
+              "to": "s-wjm4syumf858b4y",
+              "ratio": "1:1"
+            },
+            {
+              "type": "cites",
+              "from": "s-7vgppsr73pc8fgn"
+            },
+            {
+              "type": "implements",
+              "from": "s-5mu2qm3u5ue82sk"
+            }
+          ]
+        },
+        {
+          "id": "contracts/supply",
+          "sid": "s-yugc2934vgzhc6a",
+          "kind": "term",
+          "title": "supply",
+          "status": "checked",
+          "text": "A thing the saloon keeps in stock and sells at the bar by the piece, such as a bottle or a plate of beans.",
+          "refs": [
+            {
+              "type": "term-relation",
+              "from": "s-3z4yxwrxza3a54x",
+              "ratio": "1..N:0..N"
+            }
+          ]
+        },
+        {
+          "id": "contracts/order",
+          "sid": "s-3z4yxwrxza3a54x",
+          "kind": "term",
+          "title": "order",
+          "status": "checked",
+          "text": "What a regular asks for at the bar at one time: one or more supplies, each with how many of it.",
+          "refs": [
+            {
+              "type": "term-relation",
+              "to": "s-kn467afdcxgnk6b",
+              "ratio": "0..N:1"
+            },
+            {
+              "type": "term-relation",
+              "to": "s-yugc2934vgzhc6a",
+              "ratio": "0..N:1..N"
+            }
+          ]
+        },
+        {
+          "id": "contracts/room",
+          "sid": "s-wundmhpyzehe2f2",
+          "kind": "term",
+          "title": "room",
+          "status": "checked",
+          "text": "A bedroom upstairs that the saloon lets.",
+          "refs": [
+            {
+              "type": "term-relation",
+              "from": "s-v5pj2nz366fp7kb",
+              "ratio": "1:0..N"
+            }
+          ]
+        },
+        {
+          "id": "contracts/booking",
+          "sid": "s-v5pj2nz366fp7kb",
+          "kind": "term",
+          "title": "booking",
+          "status": "checked",
+          "text": "The letting of a room to a regular for 24 hours, from the instant the booking is made.",
+          "refs": [
+            {
+              "type": "term-relation",
+              "to": "s-wundmhpyzehe2f2",
+              "ratio": "0..N:1"
+            },
+            {
+              "type": "term-relation",
+              "to": "s-kn467afdcxgnk6b",
+              "ratio": "0..N:1"
+            },
+            {
+              "type": "cites",
+              "from": "s-mv5krsy8q6c9vre"
+            }
+          ],
+          "meta": {
+            "decisions": [
+              {
+                "date": "2026-11-01",
+                "problem": "A booking let a room for one night, whereas the saloon lets a room for 24 hours from the instant the booking is made, and those hours may fall across two nights.",
+                "ruling": "The owner: a room is let for 24 hours from the instant its booking is made; the nights those hours hold are not counted, no room is let by the hour, and none is booked ahead.",
+                "type": "textual"
+              }
+            ]
+          }
+        },
+        {
+          "id": "contracts/1",
+          "sid": "s-j3b7zs9299nj5fr",
+          "kind": "rule",
+          "title": "A refusal changes nothing",
+          "status": "checked",
+          "text": "A domain that refuses an operation, or any part of it, leaves everything the domains keep as it was.",
+          "rationale": "A refusal that changed anything would carry out a part of what it refused.",
+          "refs": [
+            {
+              "type": "implements",
+              "from": "s-vgw3yx6xnkk4gf6"
+            }
+          ]
+        },
+        {
+          "id": "contracts/2",
+          "sid": "s-xgkgb3kvcbs7x5v",
+          "kind": "rule",
+          "title": "A request names only what the saloon keeps",
+          "status": "checked",
+          "text": "Each domain refuses a request that names something of a kind the domain keeps — a tab, a supply, a room — that it does not hold, except the tab a request opens.",
+          "rationale": "A request naming what the saloon does not keep has nothing to act on: no tab to charge, repay or read, no supply to take or price, no room to let.",
+          "refs": [
+            {
+              "type": "implements",
+              "from": "s-nr4w6vmrb664y2c"
+            },
+            {
+              "type": "implements",
+              "from": "s-pcxc2kjytq2fvdc"
+            },
+            {
+              "type": "implements",
+              "from": "s-5mu2qm3u5ue82sk"
+            }
+          ]
+        },
+        {
+          "id": "contracts/3",
+          "sid": "s-ghhractkb4sywee",
+          "kind": "rule",
+          "title": "An order goes on the tab whole or not at all",
+          "status": "checked",
+          "text": "The tabs take a regular's order as one operation: they take out of the stock as many of each supply as the order asks for and write the order's price to the regular's journal as a charge.",
+          "rationale": "An order carried out in part leaves the stock and the tab disagreeing about what the regular had: supplies gone that nobody owes for, or a debt for supplies still on the shelf.",
+          "refs": [
+            {
+              "type": "constrains",
+              "to": "s-6dg6rvnzg7xmcm9"
+            },
+            {
+              "type": "constrains",
+              "to": "s-vugzkbduqu86uhr"
+            },
+            {
+              "type": "constrains",
+              "to": "s-f3kv8352za6w2un"
+            },
+            {
+              "type": "constrains",
+              "to": "s-2896rux5emnnwpy"
+            },
+            {
+              "type": "implements",
+              "from": "s-vgw3yx6xnkk4gf6"
+            },
+            {
+              "type": "implements",
+              "from": "s-5mu2qm3u5ue82sk"
+            }
+          ]
+        },
+        {
+          "id": "contracts/4",
+          "sid": "s-5f774mswy72x3gh",
+          "kind": "rule",
+          "title": "A booking goes on the tab whole or not at all",
+          "status": "checked",
+          "text": "The rooms book a room for a regular as one operation: they let the room and have the room's price written to the regular's tab as a charge.",
+          "rationale": "A booking and its charge carried out apart leave the rooms and the tab disagreeing about what the regular had: a room let that nobody owes for, or a debt for a room never let.",
+          "refs": [
+            {
+              "type": "constrains",
+              "to": "s-sypqtqmjnaadg9g"
+            },
+            {
+              "type": "constrains",
+              "to": "s-pnwehzrzuhuem8y"
+            },
+            {
+              "type": "constrains",
+              "to": "s-2896rux5emnnwpy"
+            },
+            {
+              "type": "implements",
+              "from": "s-nr4w6vmrb664y2c"
+            },
+            {
+              "type": "implements",
+              "from": "s-vgw3yx6xnkk4gf6"
+            }
+          ]
+        }
+      ],
+      "refs": []
+    }
+  ]
+}

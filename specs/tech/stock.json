@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "scope": "tech",
+  "section": "stock",
+  "nodes": [
+    {
+      "id": "tech/stock",
+      "sid": "s-eh42u4ks2jfu88b",
+      "kind": "section",
+      "title": "stock",
+      "status": "checked",
+      "text": "How the stock is built.",
+      "children": [
+        {
+          "id": "tech/stock/1",
+          "sid": "s-pcxc2kjytq2fvdc",
+          "kind": "rule",
+          "title": "The class Stock",
+          "status": "checked",
+          "text": "`Stock` is created from the list of supplies the saloon holds, and refuses a list naming one supply twice. It offers `inStock(name)`, `priceOf(name)`, `checkTaking(lines)` and `take(lines)`, where `lines` are order lines.\n\n`checkTaking(lines)` refuses what `take(lines)` would refuse, and changes nothing.\n\nLines naming the same supply are taken as one, their quantities added up. `checkTaking` and `take` check, in this order: each line against the runtime check of the Order line; that each supply a line names is one the stock holds (§s-xgkgb3kvcbs7x5v); and that the stock holds as many of each supply as the lines together ask for (§s-6c6uhutp3355ewu). They refuse at the first check that fails.",
+          "rationale": "A caller of the library, and the tabs pricing and taking an order, reach the stock through these methods. A list naming one supply twice leaves which of the two the stock holds to a guess. An order may name a supply on two lines, and checked one at a time each line could pass while the two together take out more than the stock holds. The checks run in a fixed order, so that lines more than one rule refuses are refused by the same rule every time. The check apart from the change lets an operation spanning more than one domain make every check before its first change.",
+          "refs": [
+            {
+              "type": "implements",
+              "to": "s-6c6uhutp3355ewu"
+            },
+            {
+              "type": "implements",
+              "to": "s-xgkgb3kvcbs7x5v"
+            }
+          ]
+        }
+      ],
+      "refs": []
+    }
+  ]
+}
