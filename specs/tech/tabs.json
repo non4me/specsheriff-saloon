@@ -58,7 +58,17 @@
             }
           ],
           "meta": {
-            "todos": []
+            "todos": [],
+            "code": [
+              {
+                "file": "src/tabs/tabs.ts"
+              }
+            ],
+            "tests": [
+              "test/tabs.test.ts::s-5mu2qm3u5ue82sk checks a charge as charging it would, and changes nothing",
+              "test/tabs.test.ts::s-5mu2qm3u5ue82sk checks an order, then that its regular has a tab, then its lines, then the charge for its price, and refuses at the first that fails",
+              "test/tabs.test.ts::s-5mu2qm3u5ue82sk takes each journal entry's instant from the clock, and returns the journal in the order the tabs accepted it"
+            ]
           }
         },
         {
@@ -74,7 +84,17 @@
               "type": "implements",
               "to": "s-n7wmxj35vnsc9uk"
             }
-          ]
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/tabs/tabs.ts"
+              }
+            ],
+            "tests": [
+              "test/tabs.test.ts::s-3srstg864vu2eyj refuses a charge above the limit the same way whether it is charged, checked or an order's"
+            ]
+          }
         }
       ],
       "refs": []

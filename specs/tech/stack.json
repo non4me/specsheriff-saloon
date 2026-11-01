@@ -142,7 +142,8 @@
               }
             ],
             "tests": [
-              "test/checks.test.ts::s-ydfsa5ueshcc56y checks each data record a constructor is given before anything else, and refuses one that fails"
+              "test/checks.test.ts::s-ydfsa5ueshcc56y checks each data record a constructor is given before anything else, and refuses one that fails",
+              "test/tabs.test.ts::s-ydfsa5ueshcc56y checks each data record the tabs are given before anything else"
             ]
           }
         },
@@ -195,10 +196,14 @@
             "code": [
               {
                 "file": "src/stock/stock.ts"
+              },
+              {
+                "file": "src/tabs/tabs.ts"
               }
             ],
             "tests": [
-              "test/stock.test.ts::s-vgw3yx6xnkk4gf6 makes every check that could refuse the taking before taking anything out"
+              "test/stock.test.ts::s-vgw3yx6xnkk4gf6 makes every check that could refuse the taking before taking anything out",
+              "test/tabs.test.ts::s-vgw3yx6xnkk4gf6 makes every check that could refuse an order before taking anything out of the stock"
             ]
           }
         }

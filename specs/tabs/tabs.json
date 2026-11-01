@@ -28,7 +28,17 @@
               "type": "implements",
               "from": "s-5mu2qm3u5ue82sk"
             }
-          ]
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/tabs/tabs.ts"
+              }
+            ],
+            "tests": [
+              "test/tabs.test.ts::s-t8zhcywbmp5rkbr refuses to open a second tab for a regular, the first kept as it was"
+            ]
+          }
         },
         {
           "id": "tabs/1.2",
@@ -55,7 +65,18 @@
               "type": "implements",
               "from": "s-3srstg864vu2eyj"
             }
-          ]
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/tabs/tabs.ts"
+              }
+            ],
+            "tests": [
+              "test/tabs.test.ts::s-n7wmxj35vnsc9uk refuses a charge that would take the debt above the limit, and takes one reaching it",
+              "test/tabs.test.ts::s-n7wmxj35vnsc9uk refuses every charge on a tab whose limit is nothing"
+            ]
+          }
         },
         {
           "id": "tabs/1.3",
@@ -74,7 +95,17 @@
               "type": "implements",
               "from": "s-5mu2qm3u5ue82sk"
             }
-          ]
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/tabs/tabs.ts"
+              }
+            ],
+            "tests": [
+              "test/tabs.test.ts::s-t2a2p5jjest399m refuses a repayment larger than the debt, and takes one equal to it"
+            ]
+          }
         },
         {
           "id": "tabs/1.4",
@@ -97,7 +128,17 @@
               "type": "implements",
               "from": "s-5mu2qm3u5ue82sk"
             }
-          ]
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/tabs/tabs.ts"
+              }
+            ],
+            "tests": [
+              "test/tabs.test.ts::s-7vgppsr73pc8fgn writes every charge and repayment the tabs accept to the regular's journal, and nothing they refuse"
+            ]
+          }
         },
         {
           "id": "tabs/1.5",
@@ -124,7 +165,17 @@
               "type": "implements",
               "from": "s-5mu2qm3u5ue82sk"
             }
-          ]
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/tabs/tabs.ts"
+              }
+            ],
+            "tests": [
+              "test/tabs.test.ts::s-42z743tznzc48pm prices an order as the sum over its lines of the supply's price times how many the line asks for"
+            ]
+          }
         },
         {
           "id": "tabs/1.6",

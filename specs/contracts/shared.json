@@ -117,7 +117,17 @@
               "type": "implements",
               "from": "s-5mu2qm3u5ue82sk"
             }
-          ]
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/tabs/tabs.ts"
+              }
+            ],
+            "tests": [
+              "test/tabs.test.ts::s-r64zmxy6x6bvzyw reads a regular's debt off the journal: its charges less its repayments"
+            ]
+          }
         },
         {
           "id": "contracts/supply",
@@ -249,10 +259,14 @@
             "code": [
               {
                 "file": "src/stock/stock.ts"
+              },
+              {
+                "file": "src/tabs/tabs.ts"
               }
             ],
             "tests": [
-              "test/stock.test.ts::s-xgkgb3kvcbs7x5v refuses a supply the stock does not hold, whether read, priced or taken"
+              "test/stock.test.ts::s-xgkgb3kvcbs7x5v refuses a supply the stock does not hold, whether read, priced or taken",
+              "test/tabs.test.ts::s-xgkgb3kvcbs7x5v refuses what names a regular the tabs keep no tab for, except the tab a request opens"
             ]
           }
         },
@@ -289,7 +303,17 @@
               "type": "implements",
               "from": "s-5mu2qm3u5ue82sk"
             }
-          ]
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/tabs/tabs.ts"
+              }
+            ],
+            "tests": [
+              "test/tabs.test.ts::s-ghhractkb4sywee puts an order on the tab whole, taking its supplies out of the stock and charging its price, or not at all"
+            ]
+          }
         },
         {
           "id": "contracts/4",
