@@ -84,14 +84,24 @@
           "kind": "rule",
           "title": "The validator of the runtime checks",
           "status": "checked",
-          "text": "The runtime checks are run by Ajv 8.17.1 for JSON Schema 2020-12, imported as `import { Ajv2020 } from \"ajv/dist/2020.js\"`, with ajv-formats 3.0.1, imported as `import formats from \"ajv-formats\"` and added by `formats.default(ajv)`, which checks every format in full, the days each month has included.",
+          "text": "The runtime checks are run by Ajv 8.20.0 for JSON Schema 2020-12, imported as `import { Ajv2020 } from \"ajv/dist/2020.js\"`, with ajv-formats 3.0.1, imported as `import formats from \"ajv-formats\"` and added by `formats.default(ajv)`, which checks every format in full, the days each month has included.",
           "rationale": "Ajv is the JSON Schema validator most used on Node, and with ajv-formats checking in full it asserts `format`, so an instant or a date that is none, such as 30 February, is refused rather than passed. These forms of import are the ones both the compiler under `nodenext` and Node accept for these packages.",
           "refs": [
             {
               "type": "implements",
               "to": "s-e877bnfa559tvk9"
             }
-          ]
+          ],
+          "meta": {
+            "decisions": [
+              {
+                "date": "2026-11-01",
+                "problem": "Ajv 8.17.1 carries a published advisory of moderate severity, a denial of service through a regular expression under the option $data, which npm audit reports at every install, while Ajv 8.20.0 fixes it with the same forms of import and the same checking of formats.",
+                "ruling": "The owner: the runtime checks are run by Ajv 8.20.0.",
+                "type": "textual"
+              }
+            ]
+          }
         },
         {
           "id": "tech/stack/6",
