@@ -229,6 +229,7 @@
           ],
           "meta": {
             "tests": [
+              "test/rooms.test.ts::s-j3b7zs9299nj5fr leaves the rooms and the tab as they were when a booking is refused",
               "test/stock.test.ts::s-j3b7zs9299nj5fr leaves the stock as it was when taking is refused"
             ]
           }
@@ -258,6 +259,9 @@
           "meta": {
             "code": [
               {
+                "file": "src/rooms/rooms.ts"
+              },
+              {
                 "file": "src/stock/stock.ts"
               },
               {
@@ -265,6 +269,7 @@
               }
             ],
             "tests": [
+              "test/rooms.test.ts::s-xgkgb3kvcbs7x5v refuses a room the rooms do not let, and a regular the tabs keep no tab for",
               "test/stock.test.ts::s-xgkgb3kvcbs7x5v refuses a supply the stock does not hold, whether read, priced or taken",
               "test/tabs.test.ts::s-xgkgb3kvcbs7x5v refuses what names a regular the tabs keep no tab for, except the tab a request opens"
             ]
@@ -344,7 +349,17 @@
               "type": "implements",
               "from": "s-vgw3yx6xnkk4gf6"
             }
-          ]
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/rooms/rooms.ts"
+              }
+            ],
+            "tests": [
+              "test/rooms.test.ts::s-5f774mswy72x3gh lets the room and writes the room's price to the regular's tab as a charge, as one operation"
+            ]
+          }
         }
       ],
       "refs": []

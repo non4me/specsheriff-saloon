@@ -32,7 +32,18 @@
               "type": "implements",
               "from": "s-nr4w6vmrb664y2c"
             }
-          ]
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/rooms/rooms.ts"
+              }
+            ],
+            "tests": [
+              "test/rooms.test.ts::s-mv5krsy8q6c9vre lets another room at any instant, and refuses a booking at an instant before one it keeps",
+              "test/rooms.test.ts::s-mv5krsy8q6c9vre refuses a booking of a room earlier than 24 hours after a booking of it was made, whoever asks, and takes one at the 24th hour"
+            ]
+          }
         },
         {
           "id": "rooms/1.2",

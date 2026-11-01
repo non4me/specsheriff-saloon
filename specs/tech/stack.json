@@ -143,6 +143,7 @@
             ],
             "tests": [
               "test/checks.test.ts::s-ydfsa5ueshcc56y checks each data record a constructor is given before anything else, and refuses one that fails",
+              "test/rooms.test.ts::s-ydfsa5ueshcc56y checks each room the rooms are created from before anything else",
               "test/tabs.test.ts::s-ydfsa5ueshcc56y checks each data record the tabs are given before anything else"
             ]
           }
@@ -195,6 +196,9 @@
           "meta": {
             "code": [
               {
+                "file": "src/rooms/rooms.ts"
+              },
+              {
                 "file": "src/stock/stock.ts"
               },
               {
@@ -202,6 +206,7 @@
               }
             ],
             "tests": [
+              "test/rooms.test.ts::s-vgw3yx6xnkk4gf6 makes every check that could refuse a booking before letting the room",
               "test/stock.test.ts::s-vgw3yx6xnkk4gf6 makes every check that could refuse the taking before taking anything out",
               "test/tabs.test.ts::s-vgw3yx6xnkk4gf6 makes every check that could refuse an order before taking anything out of the stock"
             ]

@@ -36,7 +36,19 @@
               "type": "cites",
               "to": "s-5mu2qm3u5ue82sk"
             }
-          ]
+          ],
+          "meta": {
+            "code": [
+              {
+                "file": "src/rooms/rooms.ts"
+              }
+            ],
+            "tests": [
+              "test/rooms.test.ts::s-nr4w6vmrb664y2c checks the booking, then the room, then the hours it is let for, then the charge, and refuses at the first that fails",
+              "test/rooms.test.ts::s-nr4w6vmrb664y2c is created with a clock and the rooms the saloon lets, and refuses a list naming one room twice",
+              "test/rooms.test.ts::s-nr4w6vmrb664y2c makes each booking at the clock's instant, and returns a room's bookings in the order they were made"
+            ]
+          }
         }
       ],
       "refs": []
