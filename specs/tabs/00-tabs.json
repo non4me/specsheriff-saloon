@@ -4,7 +4,7 @@
   "section": "00-tabs",
   "nodes": [
     {
-      "id": "tabs",
+      "location": "tabs",
       "sid": "s-xcb3mcj48kvyjcy",
       "kind": "domain",
       "title": "tabs",

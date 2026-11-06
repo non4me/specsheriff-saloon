@@ -21,7 +21,7 @@ const saloon = () => {
   return { time, tabs, rooms };
 };
 
-test("s-mv5krsy8q6c9vre refuses a booking of a room earlier than 24 hours after a booking of it was made, whoever asks, and takes one at the 24th hour", () => {
+test("@spec s-mv5krsy8q6c9vre refuses a booking of a room earlier than 24 hours after a booking of it was made, whoever asks, and takes one at the 24th hour", () => {
   const { time, tabs, rooms } = saloon();
   rooms.book(3, "Doc", tabs);
   assert.throws(() => rooms.book(3, "Kate", tabs), refusedBy("s-mv5krsy8q6c9vre"));
@@ -33,7 +33,7 @@ test("s-mv5krsy8q6c9vre refuses a booking of a room earlier than 24 hours after 
   assert.deepEqual(rooms.bookingsOf(3).map((b) => [b.regular, b.madeAt]), [["Doc", EIGHT_PM], ["Kate", "2026-11-02T20:00:00.000Z"]]);
 });
 
-test("s-mv5krsy8q6c9vre lets another room at any instant, and refuses a booking at an instant before one it keeps", () => {
+test("@spec s-mv5krsy8q6c9vre lets another room at any instant, and refuses a booking at an instant before one it keeps", () => {
   const { time, tabs, rooms } = saloon();
   rooms.book(3, "Doc", tabs);
   rooms.book(4, "Kate", tabs);
@@ -41,7 +41,7 @@ test("s-mv5krsy8q6c9vre lets another room at any instant, and refuses a booking 
   assert.throws(() => rooms.book(3, "Kate", tabs), refusedBy("s-mv5krsy8q6c9vre"));
 });
 
-test("s-5f774mswy72x3gh lets the room and writes the room's price to the regular's tab as a charge, as one operation", () => {
+test("@spec s-5f774mswy72x3gh lets the room and writes the room's price to the regular's tab as a charge, as one operation", () => {
   const { tabs, rooms } = saloon();
   rooms.book(3, "Doc", tabs);
   assert.deepEqual(tabs.journalOf("Doc").map((e) => [e.entryKind, e.amount]), [["charge", 300]]);
@@ -51,7 +51,7 @@ test("s-5f774mswy72x3gh lets the room and writes the room's price to the regular
   assert.equal(tabs.debtOf("Kate"), 800);
 });
 
-test("s-xgkgb3kvcbs7x5v refuses a room the rooms do not let, and a regular the tabs keep no tab for", () => {
+test("@spec s-xgkgb3kvcbs7x5v refuses a room the rooms do not let, and a regular the tabs keep no tab for", () => {
   const { tabs, rooms } = saloon();
   assert.throws(() => rooms.book(7, "Doc", tabs), refusedBy("s-xgkgb3kvcbs7x5v"));
   assert.throws(() => rooms.bookingsOf(7), refusedBy("s-xgkgb3kvcbs7x5v"));
@@ -59,12 +59,12 @@ test("s-xgkgb3kvcbs7x5v refuses a room the rooms do not let, and a regular the t
   assert.deepEqual(rooms.bookingsOf(3), []);
 });
 
-test("s-nr4w6vmrb664y2c is created with a clock and the rooms the saloon lets, and refuses a list naming one room twice", () => {
+test("@spec s-nr4w6vmrb664y2c is created with a clock and the rooms the saloon lets, and refuses a list naming one room twice", () => {
   const { clock } = settable(EIGHT_PM);
   assert.throws(() => new Rooms(clock, [{ number: 3, price: 300 }, { number: 3, price: 400 }]), refusedBy("s-nr4w6vmrb664y2c"));
 });
 
-test("s-nr4w6vmrb664y2c makes each booking at the clock's instant, and returns a room's bookings in the order they were made", () => {
+test("@spec s-nr4w6vmrb664y2c makes each booking at the clock's instant, and returns a room's bookings in the order they were made", () => {
   const { time, tabs, rooms } = saloon();
   rooms.book(3, "Doc", tabs);
   time.set("2026-11-03T09:15:00.000Z");
@@ -75,7 +75,7 @@ test("s-nr4w6vmrb664y2c makes each booking at the clock's instant, and returns a
   ]);
 });
 
-test("s-nr4w6vmrb664y2c checks the booking, then the room, then the hours it is let for, then the charge, and refuses at the first that fails", () => {
+test("@spec s-nr4w6vmrb664y2c checks the booking, then the room, then the hours it is let for, then the charge, and refuses at the first that fails", () => {
   const { tabs, rooms } = saloon();
   rooms.book(3, "Doc", tabs);
   tabs.charge({ regular: "Kate", amount: 1000 });
@@ -85,13 +85,13 @@ test("s-nr4w6vmrb664y2c checks the booking, then the room, then the hours it is 
   assert.throws(() => rooms.book(4, "Kate", tabs), refusedBy("s-n7wmxj35vnsc9uk"));
 });
 
-test("s-ydfsa5ueshcc56y checks each room the rooms are created from before anything else", () => {
+test("@spec s-ydfsa5ueshcc56y checks each room the rooms are created from before anything else", () => {
   const { clock } = settable(EIGHT_PM);
   assert.throws(() => new Rooms(clock, [{ number: 3, price: 0 }]), refusedBy("s-pnwehzrzuhuem8y"));
   assert.throws(() => new Rooms(clock, [{ number: 3, price: 300 }, { number: 3, price: 0 }]), refusedBy("s-pnwehzrzuhuem8y"));
 });
 
-test("s-j3b7zs9299nj5fr leaves the rooms and the tab as they were when a booking is refused", () => {
+test("@spec s-j3b7zs9299nj5fr leaves the rooms and the tab as they were when a booking is refused", () => {
   const { tabs, rooms } = saloon();
   tabs.charge({ regular: "Doc", amount: 900 });
   assert.throws(() => rooms.book(3, "Doc", tabs), Refusal);
@@ -100,7 +100,7 @@ test("s-j3b7zs9299nj5fr leaves the rooms and the tab as they were when a booking
   rooms.book(3, "Kate", tabs);
 });
 
-test("s-vgw3yx6xnkk4gf6 makes every check that could refuse a booking before letting the room", () => {
+test("@spec s-vgw3yx6xnkk4gf6 makes every check that could refuse a booking before letting the room", () => {
   const { tabs, rooms } = saloon();
   tabs.charge({ regular: "Doc", amount: 900 });
   assert.throws(() => rooms.book(3, "Doc", tabs), refusedBy("s-n7wmxj35vnsc9uk"));

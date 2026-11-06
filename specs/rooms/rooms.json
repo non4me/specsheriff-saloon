@@ -4,7 +4,7 @@
   "section": "rooms",
   "nodes": [
     {
-      "id": "rooms/1",
+      "location": "rooms/1",
       "sid": "s-ckk8pd7tkj94k4b",
       "kind": "section",
       "title": "The rooms",
@@ -12,13 +12,13 @@
       "text": "Which rooms the saloon lets, to whom, and when.",
       "children": [
         {
-          "id": "rooms/1.1",
+          "location": "rooms/1.1",
           "sid": "s-mv5krsy8q6c9vre",
           "kind": "rule",
           "title": "No hour of a room is let twice",
           "status": "checked",
           "text": "The rooms refuse to book a room at an instant earlier than 24 hours after a booking of that room they already keep was made.",
-          "rationale": "A booking holds its room for 24 hours from the instant it is made (§s-v5pj2nz366fp7kb), and a room has a bed for one booking at a time: a second booking within those hours promises that bed to a second regular, or charges the same regular twice for it.",
+          "reason": "A booking holds its room for 24 hours from the instant it is made (§s-v5pj2nz366fp7kb), and a room has a bed for one booking at a time: a second booking within those hours promises that bed to a second regular, or charges the same regular twice for it.",
           "refs": [
             {
               "type": "constrains",
@@ -40,15 +40,15 @@
               }
             ],
             "tests": [
-              "test/rooms.test.ts::s-mv5krsy8q6c9vre lets another room at any instant, and refuses a booking at an instant before one it keeps",
-              "test/rooms.test.ts::s-mv5krsy8q6c9vre refuses a booking of a room earlier than 24 hours after a booking of it was made, whoever asks, and takes one at the 24th hour"
+              "test/rooms.test.ts::@spec s-mv5krsy8q6c9vre lets another room at any instant, and refuses a booking at an instant before one it keeps",
+              "test/rooms.test.ts::@spec s-mv5krsy8q6c9vre refuses a booking of a room earlier than 24 hours after a booking of it was made, whoever asks, and takes one at the 24th hour"
             ]
           }
         },
         {
-          "id": "rooms/1.2",
+          "location": "rooms/1.2",
           "sid": "s-pnwehzrzuhuem8y",
-          "kind": "record",
+          "kind": "recordType",
           "title": "Room",
           "status": "checked",
           "text": "A room as the saloon lets it.",
@@ -89,9 +89,9 @@
           }
         },
         {
-          "id": "rooms/1.3",
+          "location": "rooms/1.3",
           "sid": "s-sypqtqmjnaadg9g",
-          "kind": "record",
+          "kind": "recordType",
           "title": "Booking",
           "status": "checked",
           "text": "A booking as the rooms keep it.",

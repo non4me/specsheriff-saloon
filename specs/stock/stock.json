@@ -4,7 +4,7 @@
   "section": "stock",
   "nodes": [
     {
-      "id": "stock/1",
+      "location": "stock/1",
       "sid": "s-pbrecuyh6udm5tp",
       "kind": "section",
       "title": "The stock",
@@ -12,13 +12,13 @@
       "text": "What the stock holds, and how it changes.",
       "children": [
         {
-          "id": "stock/1.1",
+          "location": "stock/1.1",
           "sid": "s-6c6uhutp3355ewu",
           "kind": "rule",
           "title": "The stock never falls below zero",
           "status": "checked",
           "text": "The stock refuses to take out more of a supply than it holds.",
-          "rationale": "A supply counted below zero would record as sold what the saloon never had.",
+          "reason": "A supply counted below zero would record as sold what the saloon never had.",
           "refs": [
             {
               "type": "constrains",
@@ -40,14 +40,14 @@
               }
             ],
             "tests": [
-              "test/stock.test.ts::s-6c6uhutp3355ewu refuses to take out more of a supply than the stock holds, and takes out all it holds"
+              "test/stock.test.ts::@spec s-6c6uhutp3355ewu refuses to take out more of a supply than the stock holds, and takes out all it holds"
             ]
           }
         },
         {
-          "id": "stock/1.2",
+          "location": "stock/1.2",
           "sid": "s-f3kv8352za6w2un",
-          "kind": "record",
+          "kind": "recordType",
           "title": "Supply",
           "status": "checked",
           "text": "A supply as the stock holds it.",
@@ -104,9 +104,9 @@
           }
         },
         {
-          "id": "stock/1.3",
+          "location": "stock/1.3",
           "sid": "s-vugzkbduqu86uhr",
-          "kind": "record",
+          "kind": "recordType",
           "title": "Order line",
           "status": "checked",
           "text": "One supply an order asks the stock for, and how many of it.",

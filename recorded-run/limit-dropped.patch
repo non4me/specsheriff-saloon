@@ -26,7 +26,7 @@ index e4103af..5596246 100644
    const rooms = new Rooms(time.clock, [{ number: 3, price: 300 }, { number: 4, price: 250 }]);
    return { time, tabs, rooms };
  };
-@@ -45,10 +46,9 @@ test("s-5f774mswy72x3gh lets the room and writes the room's price to the regular
+@@ -45,10 +46,9 @@ test("@spec s-5f774mswy72x3gh lets the room and writes the room's price to the regular
    const { tabs, rooms } = saloon();
    rooms.book(3, "Doc", tabs);
    assert.deepEqual(tabs.journalOf("Doc").map((e) => [e.entryKind, e.amount]), [["charge", 300]]);
@@ -38,9 +38,9 @@ index e4103af..5596246 100644
 +  assert.equal(tabs.debtOf("Joe"), 0);
  });
  
- test("s-xgkgb3kvcbs7x5v refuses a room the rooms do not let, and a regular the tabs keep no tab for", () => {
-@@ -78,11 +78,10 @@ test("s-nr4w6vmrb664y2c makes each booking at the clock's instant, and returns a
- test("s-nr4w6vmrb664y2c checks the booking, then the room, then the hours it is let for, then the charge, and refuses at the first that fails", () => {
+ test("@spec s-xgkgb3kvcbs7x5v refuses a room the rooms do not let, and a regular the tabs keep no tab for", () => {
+@@ -78,11 +78,10 @@ test("@spec s-nr4w6vmrb664y2c makes each booking at the clock's instant, and returns a
+ test("@spec s-nr4w6vmrb664y2c checks the booking, then the room, then the hours it is let for, then the charge, and refuses at the first that fails", () => {
    const { tabs, rooms } = saloon();
    rooms.book(3, "Doc", tabs);
 -  tabs.charge({ regular: "Kate", amount: 1000 });
@@ -51,10 +51,10 @@ index e4103af..5596246 100644
 +  assert.throws(() => rooms.book(4, "Joe", tabs), refusedBy("s-n7wmxj35vnsc9uk"));
  });
  
- test("s-ydfsa5ueshcc56y checks each room the rooms are created from before anything else", () => {
-@@ -93,16 +92,14 @@ test("s-ydfsa5ueshcc56y checks each room the rooms are created from before anyth
+ test("@spec s-ydfsa5ueshcc56y checks each room the rooms are created from before anything else", () => {
+@@ -93,16 +92,14 @@ test("@spec s-ydfsa5ueshcc56y checks each room the rooms are created from before anyth
  
- test("s-j3b7zs9299nj5fr leaves the rooms and the tab as they were when a booking is refused", () => {
+ test("@spec s-j3b7zs9299nj5fr leaves the rooms and the tab as they were when a booking is refused", () => {
    const { tabs, rooms } = saloon();
 -  tabs.charge({ regular: "Doc", amount: 900 });
 -  assert.throws(() => rooms.book(3, "Doc", tabs), Refusal);
@@ -65,7 +65,7 @@ index e4103af..5596246 100644
    rooms.book(3, "Kate", tabs);
  });
  
- test("s-vgw3yx6xnkk4gf6 makes every check that could refuse a booking before letting the room", () => {
+ test("@spec s-vgw3yx6xnkk4gf6 makes every check that could refuse a booking before letting the room", () => {
    const { tabs, rooms } = saloon();
 -  tabs.charge({ regular: "Doc", amount: 900 });
 -  assert.throws(() => rooms.book(3, "Doc", tabs), refusedBy("s-n7wmxj35vnsc9uk"));
@@ -77,7 +77,7 @@ index 0df86c9..54cdaa7 100644
 --- a/test/tabs.test.ts
 +++ b/test/tabs.test.ts
 @@ -24,16 +24,14 @@ const stock = () => new Stock([
- test("s-t8zhcywbmp5rkbr refuses to open a second tab for a regular, the first kept as it was", () => {
+ test("@spec s-t8zhcywbmp5rkbr refuses to open a second tab for a regular, the first kept as it was", () => {
    const t = tabs();
    assert.throws(() => t.open({ regular: "Doc", limit: 5000 }), refusedBy("s-t8zhcywbmp5rkbr"));
 -  t.charge({ regular: "Doc", amount: 1000 });
@@ -85,7 +85,7 @@ index 0df86c9..54cdaa7 100644
 +  assert.throws(() => t.charge({ regular: "Doc", amount: 1001 }), refusedBy("s-n7wmxj35vnsc9uk"));
  });
  
- test("s-n7wmxj35vnsc9uk refuses a charge that would take the debt above the limit, and takes one reaching it", () => {
+ test("@spec s-n7wmxj35vnsc9uk refuses a charge that would take the debt above the limit, and takes one reaching it", () => {
    const t = tabs();
 -  t.charge({ regular: "Doc", amount: 900 });
 -  assert.throws(() => t.charge({ regular: "Doc", amount: 101 }), refusedBy("s-n7wmxj35vnsc9uk"));
@@ -97,7 +97,7 @@ index 0df86c9..54cdaa7 100644
    assert.equal(t.debtOf("Doc"), 1000);
  });
  
-@@ -57,7 +55,7 @@ test("s-7vgppsr73pc8fgn writes every charge and repayment the tabs accept to the
+@@ -57,7 +55,7 @@ test("@spec s-7vgppsr73pc8fgn writes every charge and repayment the tabs accept to the
    const t = new Tabs(clock("2026-11-01T12:00:00.000Z", "2026-11-01T13:00:00.000Z"));
    t.open({ regular: "Doc", limit: 1000 });
    t.charge({ regular: "Doc", amount: 400 });
@@ -106,8 +106,8 @@ index 0df86c9..54cdaa7 100644
    t.repay({ regular: "Doc", amount: 150 });
    assert.deepEqual(t.journalOf("Doc"), [
      { regular: "Doc", entryKind: "charge", amount: 400, acceptedAt: "2026-11-01T12:00:00.000Z" },
-@@ -85,10 +83,10 @@ test("s-42z743tznzc48pm prices an order as the sum over its lines of the supply'
- test("s-ghhractkb4sywee puts an order on the tab whole, taking its supplies out of the stock and charging its price, or not at all", () => {
+@@ -85,10 +83,10 @@ test("@spec s-42z743tznzc48pm prices an order as the sum over its lines of the supply'
+ test("@spec s-ghhractkb4sywee puts an order on the tab whole, taking its supplies out of the stock and charging its price, or not at all", () => {
    const t = tabs();
    const s = stock();
 -  t.putOrderOnTab({ regular: "Doc", lines: [{ supply: "whiskey", quantity: 3 }] }, s);
@@ -121,7 +121,7 @@ index 0df86c9..54cdaa7 100644
    assert.equal(s.inStock("beans"), 10);
    assert.equal(t.journalOf("Doc").length, 1);
  });
-@@ -133,16 +131,14 @@ test("s-5mu2qm3u5ue82sk checks an order, then that its regular has a tab, then i
+@@ -133,16 +131,14 @@ test("@spec s-5mu2qm3u5ue82sk checks an order, then that its regular has a tab, then i
    assert.throws(() => t.putOrderOnTab({ regular: "Kid", lines: [] }, s), refusedBy("s-6dg6rvnzg7xmcm9"));
    assert.throws(() => t.putOrderOnTab({ regular: "Kid", lines: tooMuch }, s), refusedBy("s-xgkgb3kvcbs7x5v"));
    assert.throws(() => t.putOrderOnTab({ regular: "Doc", lines: tooMuch }, s), refusedBy("s-6c6uhutp3355ewu"));
@@ -130,7 +130,7 @@ index 0df86c9..54cdaa7 100644
 +  assert.throws(() => t.putOrderOnTab({ regular: "Doc", lines: [{ supply: "whiskey", quantity: 3 }, { supply: "beans", quantity: 10 }] }, s), refusedBy("s-n7wmxj35vnsc9uk"));
  });
  
- test("s-3srstg864vu2eyj refuses a charge above the limit the same way whether it is charged, checked or an order's", () => {
+ test("@spec s-3srstg864vu2eyj refuses a charge above the limit the same way whether it is charged, checked or an order's", () => {
    const t = tabs();
 -  t.charge({ regular: "Doc", amount: 900 });
 -  assert.throws(() => t.checkCharge({ regular: "Doc", amount: 150 }), refusedBy("s-n7wmxj35vnsc9uk"));
@@ -141,9 +141,9 @@ index 0df86c9..54cdaa7 100644
 +  assert.throws(() => t.putOrderOnTab({ regular: "Doc", lines: [{ supply: "whiskey", quantity: 3 }, { supply: "beans", quantity: 10 }] }, stock()), refusedBy("s-n7wmxj35vnsc9uk"));
  });
  
- test("s-ydfsa5ueshcc56y checks each data record the tabs are given before anything else", () => {
-@@ -156,7 +152,6 @@ test("s-ydfsa5ueshcc56y checks each data record the tabs are given before anythi
- test("s-vgw3yx6xnkk4gf6 makes every check that could refuse an order before taking anything out of the stock", () => {
+ test("@spec s-ydfsa5ueshcc56y checks each data record the tabs are given before anything else", () => {
+@@ -156,7 +152,6 @@ test("@spec s-ydfsa5ueshcc56y checks each data record the tabs are given before anythi
+ test("@spec s-vgw3yx6xnkk4gf6 makes every check that could refuse an order before taking anything out of the stock", () => {
    const t = tabs();
    const s = stock();
 -  t.charge({ regular: "Doc", amount: 950 });

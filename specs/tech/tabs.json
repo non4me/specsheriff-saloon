@@ -4,7 +4,7 @@
   "section": "tabs",
   "nodes": [
     {
-      "id": "tech/tabs",
+      "location": "tech/tabs",
       "sid": "s-r24sd37my9f25ep",
       "kind": "section",
       "title": "tabs",
@@ -12,13 +12,13 @@
       "text": "How the tabs are built.",
       "children": [
         {
-          "id": "tech/tabs/1",
+          "location": "tech/tabs/1",
           "sid": "s-5mu2qm3u5ue82sk",
           "kind": "rule",
           "title": "The class Tabs",
           "status": "checked",
           "text": "`Tabs` is created with a clock, a function returning the present instant as text in the form `Date.prototype.toISOString` writes, such as `2026-11-01T21:30:00.000Z`. Every journal entry takes its instant from the clock.\n\n`Tabs` offers `open(tab)`, `debtOf(regular)`, `journalOf(regular)`, `repay(repayment)`, `checkCharge(charge)`, `charge(charge)` and `putOrderOnTab(order, stock)`. `journalOf` returns the regular's journal entries in the order the tabs accepted them.\n\n`checkCharge(charge)` refuses what `charge(charge)` would refuse, and changes nothing.\n\n`putOrderOnTab` checks, in this order: the order against the runtime check of the Order; that the tabs keep a tab for its regular (§s-xgkgb3kvcbs7x5v); its lines, through `stock.checkTaking`; and the charge for its price, through `checkCharge`. It refuses at the first check that fails.",
-          "rationale": "A caller of the library does through these methods all that the rules of the tabs let it do. A clock given to the class lets a test fix the instant an entry is accepted at, written as the instant a journal entry holds. In the form `toISOString` writes, an instant is in UTC, to the millisecond and never at second 60, so `Date.parse` reads every instant a clock gives exactly. The check apart from the change lets an operation spanning more than one domain make every check before its first change. The checks of an order run in a fixed order, so that an order more than one rule refuses is refused by the same rule every time.",
+          "reason": "A caller of the library does through these methods all that the rules of the tabs let it do. A clock given to the class lets a test fix the instant an entry is accepted at, written as the instant a journal entry holds. In the form `toISOString` writes, an instant is in UTC, to the millisecond and never at second 60, so `Date.parse` reads every instant a clock gives exactly. The check apart from the change lets an operation spanning more than one domain make every check before its first change. The checks of an order run in a fixed order, so that an order more than one rule refuses is refused by the same rule every time.",
           "refs": [
             {
               "type": "implements",
@@ -65,20 +65,20 @@
               }
             ],
             "tests": [
-              "test/tabs.test.ts::s-5mu2qm3u5ue82sk checks a charge as charging it would, and changes nothing",
-              "test/tabs.test.ts::s-5mu2qm3u5ue82sk checks an order, then that its regular has a tab, then its lines, then the charge for its price, and refuses at the first that fails",
-              "test/tabs.test.ts::s-5mu2qm3u5ue82sk takes each journal entry's instant from the clock, and returns the journal in the order the tabs accepted it"
+              "test/tabs.test.ts::@spec s-5mu2qm3u5ue82sk checks a charge as charging it would, and changes nothing",
+              "test/tabs.test.ts::@spec s-5mu2qm3u5ue82sk checks an order, then that its regular has a tab, then its lines, then the charge for its price, and refuses at the first that fails",
+              "test/tabs.test.ts::@spec s-5mu2qm3u5ue82sk takes each journal entry's instant from the clock, and returns the journal in the order the tabs accepted it"
             ]
           }
         },
         {
-          "id": "tech/tabs/2",
+          "location": "tech/tabs/2",
           "sid": "s-3srstg864vu2eyj",
           "kind": "rule",
           "title": "The limit is compared in one place",
           "status": "checked",
           "text": "`checkCharge` alone compares the regular's debt plus the amount with the tab's limit; `charge` and `putOrderOnTab` call it rather than make that comparison themselves.",
-          "rationale": "A comparison made in two places would let one be dropped while the other still refused, and a change to the rule on the limit would have two places to reach.",
+          "reason": "A comparison made in two places would let one be dropped while the other still refused, and a change to the rule on the limit would have two places to reach.",
           "refs": [
             {
               "type": "implements",
@@ -92,7 +92,7 @@
               }
             ],
             "tests": [
-              "test/tabs.test.ts::s-3srstg864vu2eyj refuses a charge above the limit the same way whether it is charged, checked or an order's"
+              "test/tabs.test.ts::@spec s-3srstg864vu2eyj refuses a charge above the limit the same way whether it is charged, checked or an order's"
             ]
           }
         }

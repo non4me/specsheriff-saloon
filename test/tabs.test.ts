@@ -21,14 +21,14 @@ const stock = () => new Stock([
   { name: "beans", price: 80, inStock: 10 },
 ]);
 
-test("s-t8zhcywbmp5rkbr refuses to open a second tab for a regular, the first kept as it was", () => {
+test("@spec s-t8zhcywbmp5rkbr refuses to open a second tab for a regular, the first kept as it was", () => {
   const t = tabs();
   assert.throws(() => t.open({ regular: "Doc", limit: 5000 }), refusedBy("s-t8zhcywbmp5rkbr"));
   t.charge({ regular: "Doc", amount: 1000 });
   assert.throws(() => t.charge({ regular: "Doc", amount: 1 }), refusedBy("s-n7wmxj35vnsc9uk"));
 });
 
-test("s-n7wmxj35vnsc9uk refuses a charge that would take the debt above the limit, and takes one reaching it", () => {
+test("@spec s-n7wmxj35vnsc9uk refuses a charge that would take the debt above the limit, and takes one reaching it", () => {
   const t = tabs();
   t.charge({ regular: "Doc", amount: 900 });
   assert.throws(() => t.charge({ regular: "Doc", amount: 101 }), refusedBy("s-n7wmxj35vnsc9uk"));
@@ -37,13 +37,13 @@ test("s-n7wmxj35vnsc9uk refuses a charge that would take the debt above the limi
   assert.equal(t.debtOf("Doc"), 1000);
 });
 
-test("s-n7wmxj35vnsc9uk refuses every charge on a tab whose limit is nothing", () => {
+test("@spec s-n7wmxj35vnsc9uk refuses every charge on a tab whose limit is nothing", () => {
   const t = new Tabs(clock(NOON));
   t.open({ regular: "Kid", limit: 0 });
   assert.throws(() => t.charge({ regular: "Kid", amount: 1 }), refusedBy("s-n7wmxj35vnsc9uk"));
 });
 
-test("s-t2a2p5jjest399m refuses a repayment larger than the debt, and takes one equal to it", () => {
+test("@spec s-t2a2p5jjest399m refuses a repayment larger than the debt, and takes one equal to it", () => {
   const t = tabs();
   assert.throws(() => t.repay({ regular: "Doc", amount: 1 }), refusedBy("s-t2a2p5jjest399m"));
   t.charge({ regular: "Doc", amount: 300 });
@@ -53,7 +53,7 @@ test("s-t2a2p5jjest399m refuses a repayment larger than the debt, and takes one 
   assert.equal(t.debtOf("Doc"), 0);
 });
 
-test("s-7vgppsr73pc8fgn writes every charge and repayment the tabs accept to the regular's journal, and nothing they refuse", () => {
+test("@spec s-7vgppsr73pc8fgn writes every charge and repayment the tabs accept to the regular's journal, and nothing they refuse", () => {
   const t = new Tabs(clock("2026-11-01T12:00:00.000Z", "2026-11-01T13:00:00.000Z"));
   t.open({ regular: "Doc", limit: 1000 });
   t.charge({ regular: "Doc", amount: 400 });
@@ -65,7 +65,7 @@ test("s-7vgppsr73pc8fgn writes every charge and repayment the tabs accept to the
   ]);
 });
 
-test("s-r64zmxy6x6bvzyw reads a regular's debt off the journal: its charges less its repayments", () => {
+test("@spec s-r64zmxy6x6bvzyw reads a regular's debt off the journal: its charges less its repayments", () => {
   const t = tabs();
   assert.equal(t.debtOf("Doc"), 0);
   t.charge({ regular: "Doc", amount: 400 });
@@ -74,7 +74,7 @@ test("s-r64zmxy6x6bvzyw reads a regular's debt off the journal: its charges less
   assert.equal(t.debtOf("Doc"), 350);
 });
 
-test("s-42z743tznzc48pm prices an order as the sum over its lines of the supply's price times how many the line asks for", () => {
+test("@spec s-42z743tznzc48pm prices an order as the sum over its lines of the supply's price times how many the line asks for", () => {
   const t = tabs();
   t.putOrderOnTab({ regular: "Doc", lines: [{ supply: "whiskey", quantity: 2 }, { supply: "beans", quantity: 1 }] }, stock());
   assert.equal(t.debtOf("Doc"), 380);
@@ -82,7 +82,7 @@ test("s-42z743tznzc48pm prices an order as the sum over its lines of the supply'
   assert.equal(t.debtOf("Doc"), 680);
 });
 
-test("s-ghhractkb4sywee puts an order on the tab whole, taking its supplies out of the stock and charging its price, or not at all", () => {
+test("@spec s-ghhractkb4sywee puts an order on the tab whole, taking its supplies out of the stock and charging its price, or not at all", () => {
   const t = tabs();
   const s = stock();
   t.putOrderOnTab({ regular: "Doc", lines: [{ supply: "whiskey", quantity: 3 }] }, s);
@@ -93,7 +93,7 @@ test("s-ghhractkb4sywee puts an order on the tab whole, taking its supplies out 
   assert.equal(t.journalOf("Doc").length, 1);
 });
 
-test("s-xgkgb3kvcbs7x5v refuses what names a regular the tabs keep no tab for, except the tab a request opens", () => {
+test("@spec s-xgkgb3kvcbs7x5v refuses what names a regular the tabs keep no tab for, except the tab a request opens", () => {
   const t = tabs();
   assert.throws(() => t.debtOf("Kid"), refusedBy("s-xgkgb3kvcbs7x5v"));
   assert.throws(() => t.journalOf("Kid"), refusedBy("s-xgkgb3kvcbs7x5v"));
@@ -105,7 +105,7 @@ test("s-xgkgb3kvcbs7x5v refuses what names a regular the tabs keep no tab for, e
   assert.equal(t.debtOf("Kid"), 0);
 });
 
-test("s-5mu2qm3u5ue82sk takes each journal entry's instant from the clock, and returns the journal in the order the tabs accepted it", () => {
+test("@spec s-5mu2qm3u5ue82sk takes each journal entry's instant from the clock, and returns the journal in the order the tabs accepted it", () => {
   const t = new Tabs(clock("2026-11-01T12:00:00.000Z", "2026-11-01T12:30:00.000Z", "2026-11-01T13:00:00.000Z"));
   t.open({ regular: "Doc", limit: 1000 });
   t.charge({ regular: "Doc", amount: 100 });
@@ -118,7 +118,7 @@ test("s-5mu2qm3u5ue82sk takes each journal entry's instant from the clock, and r
   ]);
 });
 
-test("s-5mu2qm3u5ue82sk checks a charge as charging it would, and changes nothing", () => {
+test("@spec s-5mu2qm3u5ue82sk checks a charge as charging it would, and changes nothing", () => {
   const t = tabs();
   t.checkCharge({ regular: "Doc", amount: 1000 });
   assert.throws(() => t.checkCharge({ regular: "Doc", amount: 1001 }), refusedBy("s-n7wmxj35vnsc9uk"));
@@ -126,7 +126,7 @@ test("s-5mu2qm3u5ue82sk checks a charge as charging it would, and changes nothin
   assert.deepEqual(t.journalOf("Doc"), []);
 });
 
-test("s-5mu2qm3u5ue82sk checks an order, then that its regular has a tab, then its lines, then the charge for its price, and refuses at the first that fails", () => {
+test("@spec s-5mu2qm3u5ue82sk checks an order, then that its regular has a tab, then its lines, then the charge for its price, and refuses at the first that fails", () => {
   const t = tabs();
   const s = stock();
   const tooMuch = [{ supply: "whiskey", quantity: 5 }];
@@ -137,7 +137,7 @@ test("s-5mu2qm3u5ue82sk checks an order, then that its regular has a tab, then i
   assert.throws(() => t.putOrderOnTab({ regular: "Doc", lines: [{ supply: "whiskey", quantity: 1 }] }, s), refusedBy("s-n7wmxj35vnsc9uk"));
 });
 
-test("s-3srstg864vu2eyj refuses a charge above the limit the same way whether it is charged, checked or an order's", () => {
+test("@spec s-3srstg864vu2eyj refuses a charge above the limit the same way whether it is charged, checked or an order's", () => {
   const t = tabs();
   t.charge({ regular: "Doc", amount: 900 });
   assert.throws(() => t.checkCharge({ regular: "Doc", amount: 150 }), refusedBy("s-n7wmxj35vnsc9uk"));
@@ -145,7 +145,7 @@ test("s-3srstg864vu2eyj refuses a charge above the limit the same way whether it
   assert.throws(() => t.putOrderOnTab({ regular: "Doc", lines: [{ supply: "whiskey", quantity: 1 }] }, stock()), refusedBy("s-n7wmxj35vnsc9uk"));
 });
 
-test("s-ydfsa5ueshcc56y checks each data record the tabs are given before anything else", () => {
+test("@spec s-ydfsa5ueshcc56y checks each data record the tabs are given before anything else", () => {
   const t = tabs();
   assert.throws(() => t.open({ regular: "Kid", limit: -1 }), refusedBy("s-6zwzkthktpq6c3c"));
   assert.throws(() => t.charge({ regular: "Doc", amount: 0 }), refusedBy("s-ehcz87hd3ygcjtp"));
@@ -153,7 +153,7 @@ test("s-ydfsa5ueshcc56y checks each data record the tabs are given before anythi
   assert.throws(() => t.putOrderOnTab({ regular: "Doc", lines: [{ supply: "whiskey", quantity: 1.5 }] }, stock()), refusedBy("s-6dg6rvnzg7xmcm9"));
 });
 
-test("s-vgw3yx6xnkk4gf6 makes every check that could refuse an order before taking anything out of the stock", () => {
+test("@spec s-vgw3yx6xnkk4gf6 makes every check that could refuse an order before taking anything out of the stock", () => {
   const t = tabs();
   const s = stock();
   t.charge({ regular: "Doc", amount: 950 });

@@ -4,7 +4,7 @@
   "section": "shared",
   "nodes": [
     {
-      "id": "contracts/shared",
+      "location": "contracts/shared",
       "sid": "s-fdvc6czc6cf98r6",
       "kind": "section",
       "title": "What the domains share",
@@ -12,7 +12,7 @@
       "text": "The terms the domains share and the rules that bind more than one of them.",
       "children": [
         {
-          "id": "contracts/regular",
+          "location": "contracts/regular",
           "sid": "s-kn467afdcxgnk6b",
           "kind": "term",
           "title": "regular",
@@ -37,7 +37,7 @@
           ]
         },
         {
-          "id": "contracts/tab",
+          "location": "contracts/tab",
           "sid": "s-wjm4syumf858b4y",
           "kind": "term",
           "title": "tab",
@@ -67,7 +67,7 @@
           ]
         },
         {
-          "id": "contracts/charge",
+          "location": "contracts/charge",
           "sid": "s-ra9rperf3x35pyx",
           "kind": "term",
           "title": "charge",
@@ -82,7 +82,7 @@
           ]
         },
         {
-          "id": "contracts/repayment",
+          "location": "contracts/repayment",
           "sid": "s-8uubskk5bhvvrt4",
           "kind": "term",
           "title": "repayment",
@@ -97,7 +97,7 @@
           ]
         },
         {
-          "id": "contracts/debt",
+          "location": "contracts/debt",
           "sid": "s-r64zmxy6x6bvzyw",
           "kind": "term",
           "title": "debt",
@@ -125,12 +125,12 @@
               }
             ],
             "tests": [
-              "test/tabs.test.ts::s-r64zmxy6x6bvzyw reads a regular's debt off the journal: its charges less its repayments"
+              "test/tabs.test.ts::@spec s-r64zmxy6x6bvzyw reads a regular's debt off the journal: its charges less its repayments"
             ]
           }
         },
         {
-          "id": "contracts/supply",
+          "location": "contracts/supply",
           "sid": "s-yugc2934vgzhc6a",
           "kind": "term",
           "title": "supply",
@@ -145,7 +145,7 @@
           ]
         },
         {
-          "id": "contracts/order",
+          "location": "contracts/order",
           "sid": "s-3z4yxwrxza3a54x",
           "kind": "term",
           "title": "order",
@@ -165,7 +165,7 @@
           ]
         },
         {
-          "id": "contracts/room",
+          "location": "contracts/room",
           "sid": "s-wundmhpyzehe2f2",
           "kind": "term",
           "title": "room",
@@ -180,7 +180,7 @@
           ]
         },
         {
-          "id": "contracts/booking",
+          "location": "contracts/booking",
           "sid": "s-v5pj2nz366fp7kb",
           "kind": "term",
           "title": "booking",
@@ -214,13 +214,13 @@
           }
         },
         {
-          "id": "contracts/1",
+          "location": "contracts/1",
           "sid": "s-j3b7zs9299nj5fr",
           "kind": "rule",
           "title": "A refusal changes nothing",
           "status": "checked",
           "text": "A domain that refuses an operation, or any part of it, leaves everything the domains keep as it was.",
-          "rationale": "A refusal that changed anything would carry out a part of what it refused.",
+          "reason": "A refusal that changed anything would carry out a part of what it refused.",
           "refs": [
             {
               "type": "implements",
@@ -229,19 +229,19 @@
           ],
           "meta": {
             "tests": [
-              "test/rooms.test.ts::s-j3b7zs9299nj5fr leaves the rooms and the tab as they were when a booking is refused",
-              "test/stock.test.ts::s-j3b7zs9299nj5fr leaves the stock as it was when taking is refused"
+              "test/rooms.test.ts::@spec s-j3b7zs9299nj5fr leaves the rooms and the tab as they were when a booking is refused",
+              "test/stock.test.ts::@spec s-j3b7zs9299nj5fr leaves the stock as it was when taking is refused"
             ]
           }
         },
         {
-          "id": "contracts/2",
+          "location": "contracts/2",
           "sid": "s-xgkgb3kvcbs7x5v",
           "kind": "rule",
           "title": "A request names only what the saloon keeps",
           "status": "checked",
           "text": "Each domain refuses a request that names something of a kind the domain keeps — a tab, a supply, a room — that it does not hold, except the tab a request opens.",
-          "rationale": "A request naming what the saloon does not keep has nothing to act on: no tab to charge, repay or read, no supply to take or price, no room to let.",
+          "reason": "A request naming what the saloon does not keep has nothing to act on: no tab to charge, repay or read, no supply to take or price, no room to let.",
           "refs": [
             {
               "type": "implements",
@@ -269,20 +269,20 @@
               }
             ],
             "tests": [
-              "test/rooms.test.ts::s-xgkgb3kvcbs7x5v refuses a room the rooms do not let, and a regular the tabs keep no tab for",
-              "test/stock.test.ts::s-xgkgb3kvcbs7x5v refuses a supply the stock does not hold, whether read, priced or taken",
-              "test/tabs.test.ts::s-xgkgb3kvcbs7x5v refuses what names a regular the tabs keep no tab for, except the tab a request opens"
+              "test/rooms.test.ts::@spec s-xgkgb3kvcbs7x5v refuses a room the rooms do not let, and a regular the tabs keep no tab for",
+              "test/stock.test.ts::@spec s-xgkgb3kvcbs7x5v refuses a supply the stock does not hold, whether read, priced or taken",
+              "test/tabs.test.ts::@spec s-xgkgb3kvcbs7x5v refuses what names a regular the tabs keep no tab for, except the tab a request opens"
             ]
           }
         },
         {
-          "id": "contracts/3",
+          "location": "contracts/3",
           "sid": "s-ghhractkb4sywee",
           "kind": "rule",
           "title": "An order goes on the tab whole or not at all",
           "status": "checked",
           "text": "The tabs take a regular's order as one operation: they take out of the stock as many of each supply as the order asks for and write the order's price to the regular's journal as a charge.",
-          "rationale": "An order carried out in part leaves the stock and the tab disagreeing about what the regular had: supplies gone that nobody owes for, or a debt for supplies still on the shelf.",
+          "reason": "An order carried out in part leaves the stock and the tab disagreeing about what the regular had: supplies gone that nobody owes for, or a debt for supplies still on the shelf.",
           "refs": [
             {
               "type": "constrains",
@@ -316,18 +316,18 @@
               }
             ],
             "tests": [
-              "test/tabs.test.ts::s-ghhractkb4sywee puts an order on the tab whole, taking its supplies out of the stock and charging its price, or not at all"
+              "test/tabs.test.ts::@spec s-ghhractkb4sywee puts an order on the tab whole, taking its supplies out of the stock and charging its price, or not at all"
             ]
           }
         },
         {
-          "id": "contracts/4",
+          "location": "contracts/4",
           "sid": "s-5f774mswy72x3gh",
           "kind": "rule",
           "title": "A booking goes on the tab whole or not at all",
           "status": "checked",
           "text": "The rooms book a room for a regular as one operation: they let the room and have the room's price written to the regular's tab as a charge.",
-          "rationale": "A booking and its charge carried out apart leave the rooms and the tab disagreeing about what the regular had: a room let that nobody owes for, or a debt for a room never let.",
+          "reason": "A booking and its charge carried out apart leave the rooms and the tab disagreeing about what the regular had: a room let that nobody owes for, or a debt for a room never let.",
           "refs": [
             {
               "type": "constrains",
@@ -357,7 +357,7 @@
               }
             ],
             "tests": [
-              "test/rooms.test.ts::s-5f774mswy72x3gh lets the room and writes the room's price to the regular's tab as a charge, as one operation"
+              "test/rooms.test.ts::@spec s-5f774mswy72x3gh lets the room and writes the room's price to the regular's tab as a charge, as one operation"
             ]
           }
         }

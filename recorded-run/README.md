@@ -7,12 +7,12 @@ through. The independent reviewer refuses the commit, naming the rule on the lim
 
 ## The change
 
-[`limit-dropped.patch`](limit-dropped.patch), made on the saloon at `6cc1e7b`:
+[`limit-dropped.patch`](limit-dropped.patch), made on the saloon at `6cc1e7b`, its tests' SpecTags written in since by SpecSheriff 0.5.0:
 
 - `checkCharge` in `src/tabs/tabs.ts` stops summing the regular's journal and compares the charge's
   amount alone with the tab's limit, with a comment saying why: summing the whole journal for every
   charge kept the bar waiting at rush hour.
-- The eleven tests that change broke are rewritten. Each keeps its name and its sid, and each still
+- The eleven tests that change broke are rewritten. Each keeps its name and its SpecTag, and each still
   sees a charge above the limit refused, but in each the charge is above the limit by itself: no
   test is left in which a charge is added to a debt the regular already owes.
 
@@ -23,8 +23,8 @@ debt above the limit of their tab.*
 
 - `npm test`: the compiler finds nothing, and the 38 tests pass.
 - `sheriff validate`, `sheriff binding` and `sheriff citations` on the commit: nothing refused. Every
-  tag still names its rule, and every rule still has a test carrying its sid.
-- `sheriff message`: nothing refused. The message names every node the tags on the changed symbol
+  SpecTag still names its rule, and every rule still has a test carrying its SpecTag.
+- `sheriff message`: nothing refused. The message names every node the SpecTags on the changed symbol
   name:
 
   > Tabs: service at the bar is faster at rush hour: a charge is held to the limit by itself, so

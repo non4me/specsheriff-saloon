@@ -4,7 +4,7 @@
   "section": "00-stock",
   "nodes": [
     {
-      "id": "stock",
+      "location": "stock",
       "sid": "s-rasp8m3k8krwbby",
       "kind": "domain",
       "title": "stock",

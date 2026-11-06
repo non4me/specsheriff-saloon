@@ -4,7 +4,7 @@
   "section": "00-rooms",
   "nodes": [
     {
-      "id": "rooms",
+      "location": "rooms",
       "sid": "s-8werye2rh9hrk76",
       "kind": "domain",
       "title": "rooms",

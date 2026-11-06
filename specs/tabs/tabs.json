@@ -4,7 +4,7 @@
   "section": "tabs",
   "nodes": [
     {
-      "id": "tabs/1",
+      "location": "tabs/1",
       "sid": "s-uqukzzk3j2w2gny",
       "kind": "section",
       "title": "The tabs",
@@ -12,13 +12,13 @@
       "text": "What the tabs accept, and how they keep account of it.",
       "children": [
         {
-          "id": "tabs/1.1",
+          "location": "tabs/1.1",
           "sid": "s-t8zhcywbmp5rkbr",
           "kind": "rule",
           "title": "One tab for a regular",
           "status": "checked",
           "text": "The tabs refuse to open a tab for a regular they already keep a tab for.",
-          "rationale": "A tab's limit bounds what its regular owes, and with two tabs a regular could owe more than the limit of either. A tab is also identified by its regular's name, so of two tabs for one regular, which one a charge or a repayment goes to would be a guess.",
+          "reason": "A tab's limit bounds what its regular owes, and with two tabs a regular could owe more than the limit of either. A tab is also identified by its regular's name, so of two tabs for one regular, which one a charge or a repayment goes to would be a guess.",
           "refs": [
             {
               "type": "constrains",
@@ -36,18 +36,18 @@
               }
             ],
             "tests": [
-              "test/tabs.test.ts::s-t8zhcywbmp5rkbr refuses to open a second tab for a regular, the first kept as it was"
+              "test/tabs.test.ts::@spec s-t8zhcywbmp5rkbr refuses to open a second tab for a regular, the first kept as it was"
             ]
           }
         },
         {
-          "id": "tabs/1.2",
+          "location": "tabs/1.2",
           "sid": "s-n7wmxj35vnsc9uk",
           "kind": "rule",
           "title": "A tab holds the debt within the limit",
           "status": "checked",
           "text": "The tabs refuse a charge that would take a regular's debt above the limit of their tab.",
-          "rationale": "The limit is what the saloon agreed to let a regular owe: a debt above it is credit nobody granted.",
+          "reason": "The limit is what the saloon agreed to let a regular owe: a debt above it is credit nobody granted.",
           "refs": [
             {
               "type": "constrains",
@@ -73,19 +73,19 @@
               }
             ],
             "tests": [
-              "test/tabs.test.ts::s-n7wmxj35vnsc9uk refuses a charge that would take the debt above the limit, and takes one reaching it",
-              "test/tabs.test.ts::s-n7wmxj35vnsc9uk refuses every charge on a tab whose limit is nothing"
+              "test/tabs.test.ts::@spec s-n7wmxj35vnsc9uk refuses a charge that would take the debt above the limit, and takes one reaching it",
+              "test/tabs.test.ts::@spec s-n7wmxj35vnsc9uk refuses every charge on a tab whose limit is nothing"
             ]
           }
         },
         {
-          "id": "tabs/1.3",
+          "location": "tabs/1.3",
           "sid": "s-t2a2p5jjest399m",
           "kind": "rule",
           "title": "A repayment never takes the debt below zero",
           "status": "checked",
           "text": "The tabs refuse a repayment larger than the regular's debt.",
-          "rationale": "A debt below zero would be money the saloon owes the regular, which a tab is not kept for.",
+          "reason": "A debt below zero would be money the saloon owes the regular, which a tab is not kept for.",
           "refs": [
             {
               "type": "constrains",
@@ -103,18 +103,18 @@
               }
             ],
             "tests": [
-              "test/tabs.test.ts::s-t2a2p5jjest399m refuses a repayment larger than the debt, and takes one equal to it"
+              "test/tabs.test.ts::@spec s-t2a2p5jjest399m refuses a repayment larger than the debt, and takes one equal to it"
             ]
           }
         },
         {
-          "id": "tabs/1.4",
+          "location": "tabs/1.4",
           "sid": "s-7vgppsr73pc8fgn",
           "kind": "rule",
           "title": "The tabs write everything they accept to the journal",
           "status": "checked",
           "text": "The tabs write every charge and every repayment they accept to the journal of the regular's tab, each as a journal entry.",
-          "rationale": "The debt is read off the journal (§s-r64zmxy6x6bvzyw), so a charge or a repayment left out of it would leave the debt wrong.",
+          "reason": "The debt is read off the journal (§s-r64zmxy6x6bvzyw), so a charge or a repayment left out of it would leave the debt wrong.",
           "refs": [
             {
               "type": "cites",
@@ -136,18 +136,18 @@
               }
             ],
             "tests": [
-              "test/tabs.test.ts::s-7vgppsr73pc8fgn writes every charge and repayment the tabs accept to the regular's journal, and nothing they refuse"
+              "test/tabs.test.ts::@spec s-7vgppsr73pc8fgn writes every charge and repayment the tabs accept to the regular's journal, and nothing they refuse"
             ]
           }
         },
         {
-          "id": "tabs/1.5",
+          "location": "tabs/1.5",
           "sid": "s-42z743tznzc48pm",
           "kind": "rule",
           "title": "The price of an order",
           "status": "checked",
           "text": "The tabs price an order as the sum, over its lines, of the supply's price times how many of it the line asks for.",
-          "rationale": "An order is charged for what it takes out of the stock, at the price the stock holds for each supply.",
+          "reason": "An order is charged for what it takes out of the stock, at the price the stock holds for each supply.",
           "refs": [
             {
               "type": "constrains",
@@ -173,14 +173,14 @@
               }
             ],
             "tests": [
-              "test/tabs.test.ts::s-42z743tznzc48pm prices an order as the sum over its lines of the supply's price times how many the line asks for"
+              "test/tabs.test.ts::@spec s-42z743tznzc48pm prices an order as the sum over its lines of the supply's price times how many the line asks for"
             ]
           }
         },
         {
-          "id": "tabs/1.6",
+          "location": "tabs/1.6",
           "sid": "s-6zwzkthktpq6c3c",
-          "kind": "record",
+          "kind": "recordType",
           "title": "Tab",
           "status": "checked",
           "text": "A regular's tab as the saloon opens it.",
@@ -224,9 +224,9 @@
           }
         },
         {
-          "id": "tabs/1.7",
+          "location": "tabs/1.7",
           "sid": "s-2896rux5emnnwpy",
-          "kind": "record",
+          "kind": "recordType",
           "title": "Journal entry",
           "status": "checked",
           "text": "One charge or repayment the tabs accepted.",
@@ -294,9 +294,9 @@
           }
         },
         {
-          "id": "tabs/1.8",
+          "location": "tabs/1.8",
           "sid": "s-ehcz87hd3ygcjtp",
-          "kind": "record",
+          "kind": "recordType",
           "title": "Charge",
           "status": "checked",
           "text": "A charge as it comes to the tabs.",
@@ -336,9 +336,9 @@
           }
         },
         {
-          "id": "tabs/1.9",
+          "location": "tabs/1.9",
           "sid": "s-gj3c6xu7mtvmgfm",
-          "kind": "record",
+          "kind": "recordType",
           "title": "Repayment",
           "status": "checked",
           "text": "A repayment as it comes to the tabs.",
@@ -378,9 +378,9 @@
           }
         },
         {
-          "id": "tabs/1.10",
+          "location": "tabs/1.10",
           "sid": "s-6dg6rvnzg7xmcm9",
-          "kind": "record",
+          "kind": "recordType",
           "title": "Order",
           "status": "checked",
           "text": "A regular's order as it comes to the tabs.",

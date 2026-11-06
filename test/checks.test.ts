@@ -6,7 +6,7 @@ import { Stock } from "../src/stock/stock.ts";
 
 const refusedBy = (sid: string) => (e: unknown) => e instanceof Refusal && e.rule === sid;
 
-test("s-hvqpka9xadrdhxp holds each data record to the runtime check generated from its node", () => {
+test("@spec s-hvqpka9xadrdhxp holds each data record to the runtime check generated from its node", () => {
   const order = { regular: "Doc", lines: [{ supply: "whiskey", quantity: 1 }] };
   assert.deepEqual(checked("Order", order), order);
   assert.throws(() => checked("Order", { regular: "Doc", lines: [] }), refusedBy("s-6dg6rvnzg7xmcm9"));
@@ -14,19 +14,19 @@ test("s-hvqpka9xadrdhxp holds each data record to the runtime check generated fr
   assert.throws(() => checked("Order", { regular: "Doc", lines: [{ supply: "whiskey", quantity: 0 }] }), refusedBy("s-6dg6rvnzg7xmcm9"));
 });
 
-test("s-rrvpxyz6pa53sa6 checks every format in full, the days each month has included", () => {
+test("@spec s-rrvpxyz6pa53sa6 checks every format in full, the days each month has included", () => {
   const booking = { room: 3, madeAt: "2026-11-01T20:00:00.000Z", regular: "Doc" };
   assert.deepEqual(checked("Booking", booking), booking);
   assert.throws(() => checked("Booking", { ...booking, madeAt: "2026-02-30T20:00:00.000Z" }), refusedBy("s-sypqtqmjnaadg9g"));
   assert.throws(() => checked("Booking", { ...booking, madeAt: "the first of November" }), refusedBy("s-sypqtqmjnaadg9g"));
 });
 
-test("s-ydfsa5ueshcc56y checks each data record a constructor is given before anything else, and refuses one that fails", () => {
+test("@spec s-ydfsa5ueshcc56y checks each data record a constructor is given before anything else, and refuses one that fails", () => {
   assert.throws(() => new Stock([{ name: "whiskey", price: 0, inStock: 4 }]), refusedBy("s-f3kv8352za6w2un"));
   assert.throws(() => new Stock([{ name: "whiskey", price: 150, inStock: 4 }, { name: "whiskey", price: 150, inStock: -1 }]), refusedBy("s-f3kv8352za6w2un"));
 });
 
-test("s-9ax5e2x6xzqzb3q throws a Refusal, an error whose rule holds the sid of the rule refusing or of the data record whose check failed", () => {
+test("@spec s-9ax5e2x6xzqzb3q throws a Refusal, an error whose rule holds the sid of the rule refusing or of the data record whose check failed", () => {
   const caught = (act: () => unknown): unknown => {
     try {
       act();

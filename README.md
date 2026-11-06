@@ -5,11 +5,11 @@ town — its stock, the tabs its regulars run, and the rooms upstairs — specif
 the method, set up the way any project takes it up.
 
 The saloon is small on purpose; what it shows is the trail. Every rule of its specification was read
-and confirmed by its owner one node at a time. Every symbol of its code carries a tag naming the
-rules it implements, every test opens with the sid of the rule it verifies and was written before
-the code, and every commit names the rules it serves and went through the git hooks and an
-independent reviewer. [The recorded run](recorded-run/README.md) shows a change that every test and
-every deterministic check let through, and that the reviewer refused.
+and confirmed by its owner one node at a time. Every symbol of its code carries a SpecTag naming the
+rules it implements, every test opens its name with the SpecTag of the rule it is written from and
+was written before the code, and every commit names the rules it serves and went through the git
+hooks and an independent reviewer. [The recorded run](recorded-run/README.md) shows a change that
+every test and every deterministic check let through, and that the reviewer refused.
 
 ## What it does
 
@@ -58,8 +58,8 @@ tabs.putOrderOnTab({ regular: "Doc", lines: [{ supply: "beans", quantity: 5 }] }
 
 Start from a rule and follow it. The rule on the limit, s-n7wmxj35vnsc9uk, is in
 `specs/tabs/tabs.json`, with its reason, its links and the lists of the code and the tests bound to
-it; the class `Tabs` in `src/tabs/tabs.ts` carries its tag, and the tests in `test/tabs.test.ts`
-that open with its sid verify it. `git log` reads in the order the work went: the specification,
+it; the class `Tabs` in `src/tabs/tabs.ts` carries its SpecTag, and the tests in
+`test/tabs.test.ts` that open with its SpecTag are written from it. `git log` reads in the order the work went: the specification,
 then the stack, then each domain with its tests.
 
 ## Running it
