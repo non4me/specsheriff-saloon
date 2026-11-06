@@ -71,6 +71,25 @@
               }
             ]
           }
+        },
+        {
+          "location": "_guidelines/project/3",
+          "sid": "s-narpkugz9gx8u7h",
+          "kind": "rule",
+          "title": "The specification is live",
+          "status": "checked",
+          "text": "This project's specification is live.",
+          "reason": "Every symbol of the saloon's code and every test carries the SpecTag of the node it implements or is written from, so a draft would only stop the tests from running at a push (§s-xhcmchcngykvn2k).",
+          "refs": [
+            {
+              "type": "refines",
+              "to": "s-qzthyh7yqvfhsa2"
+            },
+            {
+              "type": "cites",
+              "to": "s-xhcmchcngykvn2k"
+            }
+          ]
         }
       ]
     }
