@@ -8,7 +8,7 @@
       "sid": "s-rasp8m3k8krwbby",
       "kind": "domain",
       "title": "stock",
-      "status": "checked",
+      "status": "approved",
       "text": "Keeps how much of each supply the saloon holds, and what each costs.",
       "level": "goods",
       "code": "src/stock",

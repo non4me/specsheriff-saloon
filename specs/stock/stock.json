@@ -8,7 +8,7 @@
       "sid": "s-pbrecuyh6udm5tp",
       "kind": "section",
       "title": "The stock",
-      "status": "checked",
+      "status": "approved",
       "text": "What the stock holds, and how it changes.",
       "children": [
         {
@@ -16,7 +16,7 @@
           "sid": "s-6c6uhutp3355ewu",
           "kind": "rule",
           "title": "The stock never falls below zero",
-          "status": "checked",
+          "status": "approved",
           "text": "The stock refuses to take out more of a supply than it holds.",
           "reason": "A supply counted below zero would record as sold what the saloon never had.",
           "refs": [
@@ -49,7 +49,7 @@
           "sid": "s-f3kv8352za6w2un",
           "kind": "recordType",
           "title": "Supply",
-          "status": "checked",
+          "status": "approved",
           "text": "A supply as the stock holds it.",
           "fields": [
             {
@@ -108,7 +108,7 @@
           "sid": "s-vugzkbduqu86uhr",
           "kind": "recordType",
           "title": "Order line",
-          "status": "checked",
+          "status": "approved",
           "text": "One supply an order asks the stock for, and how many of it.",
           "fields": [
             {

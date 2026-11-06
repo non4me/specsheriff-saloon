@@ -5,7 +5,7 @@ town — its stock, the tabs its regulars run, and the rooms upstairs — specif
 the method, set up the way any project takes it up.
 
 The saloon is small on purpose; what it shows is the trail. Every rule of its specification was read
-and confirmed by its owner one node at a time. Every symbol of its code carries a SpecTag naming the
+and approved by its owner one node at a time. Every symbol of its code carries a SpecTag naming the
 rules it implements, every test opens its name with the SpecTag of the rule it is written from and
 was written before the code, and every commit names the rules it serves and went through the git
 hooks and an independent reviewer. [The recorded run](recorded-run/README.md) shows a change that
@@ -49,7 +49,7 @@ tabs.putOrderOnTab({ regular: "Doc", lines: [{ supply: "beans", quantity: 5 }] }
 | `specs/contracts/` | the terms the domains share and the rules that hold between them |
 | `specs/stock/`, `specs/tabs/`, `specs/rooms/` | each domain: its header in `00-*.json`, then its rules and data records |
 | `specs/tech/` | the technical appendix: the stack, and how each domain is built |
-| `specs/_confirmations.jsonl` | the owner's confirmation of each node |
+| `specs/_approvals.jsonl` | the owner's approval of each node |
 | `src/` | the code; `src/generated/` holds the types and runtime checks generated from the data records |
 | `test/` | the tests |
 | `recorded-run/` | the recorded run |

@@ -8,7 +8,7 @@
       "sid": "s-uqukzzk3j2w2gny",
       "kind": "section",
       "title": "The tabs",
-      "status": "checked",
+      "status": "approved",
       "text": "What the tabs accept, and how they keep account of it.",
       "children": [
         {
@@ -16,7 +16,7 @@
           "sid": "s-t8zhcywbmp5rkbr",
           "kind": "rule",
           "title": "One tab for a regular",
-          "status": "checked",
+          "status": "approved",
           "text": "The tabs refuse to open a tab for a regular they already keep a tab for.",
           "reason": "A tab's limit bounds what its regular owes, and with two tabs a regular could owe more than the limit of either. A tab is also identified by its regular's name, so of two tabs for one regular, which one a charge or a repayment goes to would be a guess.",
           "refs": [
@@ -45,7 +45,7 @@
           "sid": "s-n7wmxj35vnsc9uk",
           "kind": "rule",
           "title": "A tab holds the debt within the limit",
-          "status": "checked",
+          "status": "approved",
           "text": "The tabs refuse a charge that would take a regular's debt above the limit of their tab.",
           "reason": "The limit is what the saloon agreed to let a regular owe: a debt above it is credit nobody granted.",
           "refs": [
@@ -83,7 +83,7 @@
           "sid": "s-t2a2p5jjest399m",
           "kind": "rule",
           "title": "A repayment never takes the debt below zero",
-          "status": "checked",
+          "status": "approved",
           "text": "The tabs refuse a repayment larger than the regular's debt.",
           "reason": "A debt below zero would be money the saloon owes the regular, which a tab is not kept for.",
           "refs": [
@@ -112,7 +112,7 @@
           "sid": "s-7vgppsr73pc8fgn",
           "kind": "rule",
           "title": "The tabs write everything they accept to the journal",
-          "status": "checked",
+          "status": "approved",
           "text": "The tabs write every charge and every repayment they accept to the journal of the regular's tab, each as a journal entry.",
           "reason": "The debt is read off the journal (§s-r64zmxy6x6bvzyw), so a charge or a repayment left out of it would leave the debt wrong.",
           "refs": [
@@ -145,7 +145,7 @@
           "sid": "s-42z743tznzc48pm",
           "kind": "rule",
           "title": "The price of an order",
-          "status": "checked",
+          "status": "approved",
           "text": "The tabs price an order as the sum, over its lines, of the supply's price times how many of it the line asks for.",
           "reason": "An order is charged for what it takes out of the stock, at the price the stock holds for each supply.",
           "refs": [
@@ -182,7 +182,7 @@
           "sid": "s-6zwzkthktpq6c3c",
           "kind": "recordType",
           "title": "Tab",
-          "status": "checked",
+          "status": "approved",
           "text": "A regular's tab as the saloon opens it.",
           "fields": [
             {
@@ -228,7 +228,7 @@
           "sid": "s-2896rux5emnnwpy",
           "kind": "recordType",
           "title": "Journal entry",
-          "status": "checked",
+          "status": "approved",
           "text": "One charge or repayment the tabs accepted.",
           "fields": [
             {
@@ -298,7 +298,7 @@
           "sid": "s-ehcz87hd3ygcjtp",
           "kind": "recordType",
           "title": "Charge",
-          "status": "checked",
+          "status": "approved",
           "text": "A charge as it comes to the tabs.",
           "fields": [
             {
@@ -340,7 +340,7 @@
           "sid": "s-gj3c6xu7mtvmgfm",
           "kind": "recordType",
           "title": "Repayment",
-          "status": "checked",
+          "status": "approved",
           "text": "A repayment as it comes to the tabs.",
           "fields": [
             {
@@ -382,7 +382,7 @@
           "sid": "s-6dg6rvnzg7xmcm9",
           "kind": "recordType",
           "title": "Order",
-          "status": "checked",
+          "status": "approved",
           "text": "A regular's order as it comes to the tabs.",
           "fields": [
             {

@@ -8,7 +8,7 @@
       "sid": "s-4a6yfkp37wea58y",
       "kind": "section",
       "title": "rooms",
-      "status": "checked",
+      "status": "approved",
       "text": "How the rooms are built.",
       "children": [
         {
@@ -16,7 +16,7 @@
           "sid": "s-nr4w6vmrb664y2c",
           "kind": "rule",
           "title": "The class Rooms",
-          "status": "checked",
+          "status": "approved",
           "text": "`Rooms` is created with a clock, of the kind `Tabs` is created with (§s-5mu2qm3u5ue82sk), and from the list of rooms the saloon lets, and refuses a list naming one room twice.\n\n`Rooms` offers `book(room, regular, tabs)`, where `room` is a room's number and `regular` a regular's name, and `bookingsOf(room)`, which returns the bookings of that room in the order they were made.\n\n`book` makes the booking from `room`, `regular` and the clock's instant, and checks, in this order: the booking against the runtime check of the Booking; that the room is one the rooms let (§s-xgkgb3kvcbs7x5v); that no booking of the room they keep holds it at that instant (§s-mv5krsy8q6c9vre); and the charge for it, through `tabs.checkCharge`. It refuses at the first check that fails.",
           "reason": "A caller of the library lets the rooms and reads their bookings through these methods. A clock given to the class lets a test fix the instant a booking is made at. A list naming one room twice leaves which of the two the rooms let to a guess. `book` takes a room's number and a regular's name rather than a booking, since the instant a booking holds is the clock's, never the caller's. The checks run in a fixed order, so that a booking more than one rule refuses is refused by the same rule every time. The rooms book through the tabs they are given, so that the booking and its charge are one operation. Listed in the order they were made, a room's bookings read as the hours it was let, one after another.",
           "refs": [

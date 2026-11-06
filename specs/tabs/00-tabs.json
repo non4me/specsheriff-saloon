@@ -8,7 +8,7 @@
       "sid": "s-xcb3mcj48kvyjcy",
       "kind": "domain",
       "title": "tabs",
-      "status": "checked",
+      "status": "approved",
       "text": "Keeps each regular's tab: opens it, puts on it the charges for the regular's orders and bookings, takes the regular's repayments, and holds the debt within the tab's limit.",
       "level": "service",
       "code": "src/tabs",

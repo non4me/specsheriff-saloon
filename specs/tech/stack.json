@@ -8,7 +8,7 @@
       "sid": "s-hrvewz93nbmc685",
       "kind": "section",
       "title": "The stack",
-      "status": "checked",
+      "status": "approved",
       "text": "The technologies the whole system is built with.",
       "children": [
         {
@@ -16,7 +16,7 @@
           "sid": "s-s2d8zd3ca6egrwf",
           "kind": "rule",
           "title": "A library in TypeScript on Node",
-          "status": "checked",
+          "status": "approved",
           "text": "The system is a library whose classes a caller imports, written in TypeScript that Node 24 or later runs as it stands by stripping its types.",
           "reason": "A library is the least a reader has to set up to run the system and its tests; TypeScript is a language the SpecSheriff tools read SpecTags in and generate types for; and code Node runs by stripping its types needs no build step.",
           "refs": [
@@ -41,7 +41,7 @@
           "sid": "s-yuhpy7wst359nnw",
           "kind": "rule",
           "title": "The system's data is kept in memory",
-          "status": "checked",
+          "status": "approved",
           "text": "The system keeps everything its domains hold in the objects its caller creates.",
           "reason": "Nothing the system does needs what a store would keep, and a store would add setting up to every run.",
           "refs": [
@@ -56,7 +56,7 @@
           "sid": "s-ebkd2pa8ccjtkhn",
           "kind": "rule",
           "title": "How the code is checked",
-          "status": "checked",
+          "status": "approved",
           "text": "`npm test` checks the code with `tsc --noEmit` of TypeScript 5.9.3, under a `tsconfig.json` setting `strict`, `module` to `nodenext`, `erasableSyntaxOnly`, `verbatimModuleSyntax` and `allowImportingTsExtensions`, then runs the tests with `node --test \"test/**/*.test.ts\"`.",
           "reason": "Node checks no types when it strips them, so only the compiler holds the code to the types generated from the data records, and one version of it, fixed, checks alike on every machine. `strict` has it refuse a value that may be missing where a type says it is present; `module` set to `nodenext` resolves an import as Node does, so that what passes the compiler is what Node loads; `allowImportingTsExtensions` lets an import name the `.ts` file Node loads; `erasableSyntaxOnly` refuses what Node cannot strip, and `verbatimModuleSyntax` an import of a type written without `import type`. `node --test` runs tests written as `test(\"s-… what it verifies\", …)`, which is how a test declares its sid.",
           "refs": [
@@ -71,7 +71,7 @@
           "sid": "s-hvqpka9xadrdhxp",
           "kind": "rule",
           "title": "The generated types and runtime checks",
-          "status": "checked",
+          "status": "approved",
           "text": "The system's code takes the types of the data records from `src/generated/types.ts` and their runtime checks from `src/generated/checks.json`, both generated from the data record nodes.",
           "reason": "Generated into fixed files, the types and runtime checks are found by the code that imports them and by the check comparing them with the data record nodes.",
           "refs": [
@@ -103,7 +103,7 @@
           "sid": "s-rrvpxyz6pa53sa6",
           "kind": "rule",
           "title": "The validator of the runtime checks",
-          "status": "checked",
+          "status": "approved",
           "text": "The runtime checks are run by Ajv 8.20.0 for JSON Schema 2020-12, imported as `import { Ajv2020 } from \"ajv/dist/2020.js\"`, with ajv-formats 3.0.1, imported as `import formats from \"ajv-formats\"` and added by `formats.default(ajv)`, which checks every format in full, the days each month has included.",
           "reason": "Ajv is the JSON Schema validator most used on Node, and with ajv-formats checking in full it asserts `format`, so an instant or a date that is none, such as 30 February, is refused rather than passed. These forms of import are the ones both the compiler under `nodenext` and Node accept for these packages.",
           "refs": [
@@ -136,7 +136,7 @@
           "sid": "s-ydfsa5ueshcc56y",
           "kind": "rule",
           "title": "A data record is checked on entry",
-          "status": "checked",
+          "status": "approved",
           "text": "Every method and constructor the system offers its caller checks each data record it is given against the data record's runtime check before anything else, and refuses one that fails it.",
           "reason": "A data record that does not match its node would carry into the system a value no rule was written for.",
           "refs": [
@@ -163,7 +163,7 @@
           "sid": "s-9ax5e2x6xzqzb3q",
           "kind": "rule",
           "title": "A refusal throws",
-          "status": "checked",
+          "status": "approved",
           "text": "A method or constructor that refuses throws a `Refusal`, an error whose `rule` holds the sid of the rule refusing, or of the data record node whose runtime check failed.",
           "reason": "One kind of error for every refusal lets a caller tell a refusal from a fault, and the sid tells which rule refused, which a test checks.",
           "refs": [],
@@ -186,7 +186,7 @@
           "sid": "s-vgw3yx6xnkk4gf6",
           "kind": "rule",
           "title": "Every check before the first change",
-          "status": "checked",
+          "status": "approved",
           "text": "A method carrying out an operation makes every check that could refuse the operation before it makes its first change.",
           "reason": "The objects in memory have no transaction to undo a change, so an operation changes nothing it refuses only where every check comes before the first change.",
           "refs": [

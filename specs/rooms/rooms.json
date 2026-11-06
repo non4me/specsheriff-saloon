@@ -8,7 +8,7 @@
       "sid": "s-ckk8pd7tkj94k4b",
       "kind": "section",
       "title": "The rooms",
-      "status": "checked",
+      "status": "approved",
       "text": "Which rooms the saloon lets, to whom, and when.",
       "children": [
         {
@@ -16,7 +16,7 @@
           "sid": "s-mv5krsy8q6c9vre",
           "kind": "rule",
           "title": "No hour of a room is let twice",
-          "status": "checked",
+          "status": "approved",
           "text": "The rooms refuse to book a room at an instant earlier than 24 hours after a booking of that room they already keep was made.",
           "reason": "A booking holds its room for 24 hours from the instant it is made (§s-v5pj2nz366fp7kb), and a room has a bed for one booking at a time: a second booking within those hours promises that bed to a second regular, or charges the same regular twice for it.",
           "refs": [
@@ -50,7 +50,7 @@
           "sid": "s-pnwehzrzuhuem8y",
           "kind": "recordType",
           "title": "Room",
-          "status": "checked",
+          "status": "approved",
           "text": "A room as the saloon lets it.",
           "fields": [
             {
@@ -93,7 +93,7 @@
           "sid": "s-sypqtqmjnaadg9g",
           "kind": "recordType",
           "title": "Booking",
-          "status": "checked",
+          "status": "approved",
           "text": "A booking as the rooms keep it.",
           "fields": [
             {

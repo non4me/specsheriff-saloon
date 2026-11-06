@@ -8,7 +8,7 @@
       "sid": "s-8werye2rh9hrk76",
       "kind": "domain",
       "title": "rooms",
-      "status": "checked",
+      "status": "approved",
       "text": "Lets the rooms upstairs, and keeps their bookings.",
       "level": "service",
       "code": "src/rooms",

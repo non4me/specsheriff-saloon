@@ -8,7 +8,7 @@
       "sid": "s-fdvc6czc6cf98r6",
       "kind": "section",
       "title": "What the domains share",
-      "status": "checked",
+      "status": "approved",
       "text": "The terms the domains share and the rules that bind more than one of them.",
       "children": [
         {
@@ -16,7 +16,7 @@
           "sid": "s-kn467afdcxgnk6b",
           "kind": "term",
           "title": "regular",
-          "status": "checked",
+          "status": "approved",
           "text": "A patron the saloon runs a tab for, known by name.",
           "refs": [
             {
@@ -41,7 +41,7 @@
           "sid": "s-wjm4syumf858b4y",
           "kind": "term",
           "title": "tab",
-          "status": "checked",
+          "status": "approved",
           "text": "The account the saloon keeps for a regular: its journal, the charges and repayments written to it, and its limit, the most the regular may owe on it.",
           "refs": [
             {
@@ -71,7 +71,7 @@
           "sid": "s-ra9rperf3x35pyx",
           "kind": "term",
           "title": "charge",
-          "status": "checked",
+          "status": "approved",
           "text": "An amount a regular comes to owe on their tab, for an order or a booking.",
           "refs": [
             {
@@ -86,7 +86,7 @@
           "sid": "s-8uubskk5bhvvrt4",
           "kind": "term",
           "title": "repayment",
-          "status": "checked",
+          "status": "approved",
           "text": "An amount a regular pays back on their tab.",
           "refs": [
             {
@@ -101,7 +101,7 @@
           "sid": "s-r64zmxy6x6bvzyw",
           "kind": "term",
           "title": "debt",
-          "status": "checked",
+          "status": "approved",
           "text": "What a regular owes on their tab: the sum of the charges on its journal less the sum of the repayments on it.",
           "refs": [
             {
@@ -134,7 +134,7 @@
           "sid": "s-yugc2934vgzhc6a",
           "kind": "term",
           "title": "supply",
-          "status": "checked",
+          "status": "approved",
           "text": "A thing the saloon keeps in stock and sells at the bar by the piece, such as a bottle or a plate of beans.",
           "refs": [
             {
@@ -149,7 +149,7 @@
           "sid": "s-3z4yxwrxza3a54x",
           "kind": "term",
           "title": "order",
-          "status": "checked",
+          "status": "approved",
           "text": "What a regular asks for at the bar at one time: one or more supplies, each with how many of it.",
           "refs": [
             {
@@ -169,7 +169,7 @@
           "sid": "s-wundmhpyzehe2f2",
           "kind": "term",
           "title": "room",
-          "status": "checked",
+          "status": "approved",
           "text": "A bedroom upstairs that the saloon lets.",
           "refs": [
             {
@@ -184,7 +184,7 @@
           "sid": "s-v5pj2nz366fp7kb",
           "kind": "term",
           "title": "booking",
-          "status": "checked",
+          "status": "approved",
           "text": "The letting of a room to a regular for 24 hours, from the instant the booking is made.",
           "refs": [
             {
@@ -218,7 +218,7 @@
           "sid": "s-j3b7zs9299nj5fr",
           "kind": "rule",
           "title": "A refusal changes nothing",
-          "status": "checked",
+          "status": "approved",
           "text": "A domain that refuses an operation, or any part of it, leaves everything the domains keep as it was.",
           "reason": "A refusal that changed anything would carry out a part of what it refused.",
           "refs": [
@@ -239,7 +239,7 @@
           "sid": "s-xgkgb3kvcbs7x5v",
           "kind": "rule",
           "title": "A request names only what the saloon keeps",
-          "status": "checked",
+          "status": "approved",
           "text": "Each domain refuses a request that names something of a kind the domain keeps — a tab, a supply, a room — that it does not hold, except the tab a request opens.",
           "reason": "A request naming what the saloon does not keep has nothing to act on: no tab to charge, repay or read, no supply to take or price, no room to let.",
           "refs": [
@@ -280,7 +280,7 @@
           "sid": "s-ghhractkb4sywee",
           "kind": "rule",
           "title": "An order goes on the tab whole or not at all",
-          "status": "checked",
+          "status": "approved",
           "text": "The tabs take a regular's order as one operation: they take out of the stock as many of each supply as the order asks for and write the order's price to the regular's journal as a charge.",
           "reason": "An order carried out in part leaves the stock and the tab disagreeing about what the regular had: supplies gone that nobody owes for, or a debt for supplies still on the shelf.",
           "refs": [
@@ -325,7 +325,7 @@
           "sid": "s-5f774mswy72x3gh",
           "kind": "rule",
           "title": "A booking goes on the tab whole or not at all",
-          "status": "checked",
+          "status": "approved",
           "text": "The rooms book a room for a regular as one operation: they let the room and have the room's price written to the regular's tab as a charge.",
           "reason": "A booking and its charge carried out apart leave the rooms and the tab disagreeing about what the regular had: a room let that nobody owes for, or a debt for a room never let.",
           "refs": [

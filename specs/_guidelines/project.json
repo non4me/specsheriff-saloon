@@ -8,9 +8,11 @@
       "sid": "s-fc6n7wx4rw5ug4a",
       "kind": "section",
       "title": "The project's own guidelines",
-      "status": "checked",
+      "status": "approved",
       "text": "What only this project's specification needs beyond the SpecSheriff guidelines.",
-      "owner": "vladimir.troyanenko@gmail.com",
+      "owners": [
+        "vladimir.troyanenko@gmail.com"
+      ],
       "refs": [],
       "children": [
         {
@@ -18,7 +20,7 @@
           "sid": "s-xtxfx2umeg49fyu",
           "kind": "rule",
           "title": "The levels of the domains",
-          "status": "checked",
+          "status": "approved",
           "text": "The domains stand at these levels, from the general to the particular: service, the domains that deal with a regular, keeping what the regular takes or owes; goods, the domains that keep what the saloon has to sell and know no regular.",
           "reason": "What a regular takes or owes is made of what the saloon has to sell, and what the saloon has to sell depends on no regular, so the service stands above the goods.",
           "refs": [
@@ -40,7 +42,7 @@
           "sid": "s-ffdhnma83jhbuxu",
           "kind": "rule",
           "title": "The choices of the stack no symbol carries",
-          "status": "checked",
+          "status": "approved",
           "text": "The rules of the stack choosing the language and the runtime (§s-s2d8zd3ca6egrwf), where the data is kept (§s-yuhpy7wst359nnw) and how the code is checked (§s-ebkd2pa8ccjtkhn) are exempt from being implemented.",
           "reason": "They are carried out by the repository's setup — its package and its compiler's settings — and by the objects a caller creates, rather than by a symbol of the system's code, so no symbol can carry their SpecTag and no test of the system can verify them, and each would be reported as not implemented for as long as it stood (§s-6fw72j65jkqrfpf).",
           "refs": [
@@ -77,7 +79,7 @@
           "sid": "s-narpkugz9gx8u7h",
           "kind": "rule",
           "title": "The specification is live",
-          "status": "checked",
+          "status": "approved",
           "text": "This project's specification is live.",
           "reason": "Every symbol of the saloon's code and every test carries the SpecTag of the node it implements or is written from, so a draft would only stop the tests from running at a push (§s-xhcmchcngykvn2k).",
           "refs": [
